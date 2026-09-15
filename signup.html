@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إنشاء حساب جديد - مِستودع المهارات</title>
+    <style>
+        :root {
+            --primary: #4F46E5;
+            --primary-hover: #4338CA;
+            --dark: #1F2937;
+            --light: #F3F4F6;
+            --white: #FFFFFF;
+            --text-muted: #6B7280;
+            --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%); display: flex; justify-content: center; align-items: center; min-height: 100vh; padding: 20px; }
+        
+        .signup-container { background: var(--white); padding: 40px; border-radius: 20px; width: 100%; max-width: 450px; box-shadow: var(--shadow-lg); }
+        .modal-icon { font-size: 3.5rem; text-align: center; margin-bottom: 15px; }
+        h2 { text-align: center; margin-bottom: 10px; font-size: 1.8rem; color: var(--dark); }
+        p.subtitle { text-align: center; color: var(--text-muted); margin-bottom: 30px; }
+        
+        form label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--dark); }
+        form input { width: 100%; padding: 12px 15px; border: 1.5px solid #D1D5DB; border-radius: 10px; margin-bottom: 20px; font-family: inherit; font-size: 1rem; }
+        form input:focus { outline: none; border-color: var(--primary); }
+        
+        .primary-btn { background: var(--primary); color: white; border: none; padding: 14px; border-radius: 8px; font-weight: bold; cursor: pointer; width: 100%; font-size: 1.1rem; transition: 0.3s; }
+        .primary-btn:hover { background: var(--primary-hover); }
+        
+        .footer-link { text-align: center; margin-top: 25px; color: var(--text-muted); }
+        .footer-link a { color: var(--primary); font-weight: bold; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+    <div class="signup-container">
+        <div class="modal-icon">✨</div>
+        <h2>إنشاء حساب جديد</h2>
+        <p class="subtitle">انضم إلينا وابدأ تبادل المعرفة</p>
+        
+        <form onsubmit="handleSignup(event)">
+            <label>الاسم الكامل</label>
+            <input type="text" placeholder="أدخل اسمك الكامل" required>
+
+            <label>البريد الإلكتروني</label>
+            <input type="email" placeholder="name@example.com" required>
+            
+            <label>كلمة المرور</label>
+            <input type="password" placeholder="••••••••" required>
+            
+            <button type="submit" class="primary-btn">إنشاء الحساب</button>
+        </form>
+        
+        <div class="footer-link">
+            لديك حساب بالفعل؟ 
+            <a href="index.html">تسجيل الدخول</a>
+        </div>
+    </div>
+
+    <script>
+        function handleSignup(event) {
+            event.preventDefault();
+            alert("تهانينا! تم إنشاء حسابك بنجاح. سيتم تحويلك للصفحة الرئيسية.");
+            window.location.href = "index.html"; // نقله للصفحة الرئيسية بعد التسجيل
+        }
+    </script>
+</body>
+</html>
