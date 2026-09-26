@@ -28,7 +28,6 @@ let services = [
         user: "نورة",
         rating: 4.9
     },
-
     {
         name: "برمجة صفحة ويب",
         category: "programming",
@@ -37,7 +36,6 @@ let services = [
         user: "محمد",
         rating: 4.8
     },
-
     {
         name: "كتابة محتوى",
         category: "writing",
@@ -46,7 +44,6 @@ let services = [
         user: "سارة",
         rating: 5.0
     },
-
     {
         name: "إدارة حسابات التواصل",
         category: "marketing",
@@ -63,7 +60,6 @@ let isRightFoot = false;
 window.addEventListener('scroll', () => {
   const currentScrollY = window.scrollY;
 
-  // طباعة أثر فقط عند التمرير لأسفل وبفارق مسافة محددة
   if (currentScrollY - lastScrollY > 30) {
     createPawPrint();
     lastScrollY = currentScrollY;
@@ -73,47 +69,11 @@ window.addEventListener('scroll', () => {
 function createPawPrint() {
   const paw = document.createElement('div');
   paw.className = 'paw-print';
-  paw.innerHTML = '🐾'; // أثر القدم
+  paw.innerHTML = '🐾';
 
-  function catPeekAnimation() {
-  const cat = document.getElementById('peeking-cat');
-  if (!cat) return;
-
-  // اختيار اتجاه عشوائي (يمين أو يسار)
-  const isLeft = Math.random() > 0.5;
-  
-  // إعادة ضبط التنسيقات
-  cat.className = 'peeking-cat';
-  cat.style.display = 'block';
-
-  if (isLeft) {
-    cat.classList.add('peek-left');
-  } else {
-    cat.classList.add('peek-right');
-  }
-
-  // إظهار القطة (تطل)
-  setTimeout(() => {
-    cat.classList.add('show');
-  }, 100);
-
-  // إخفاء القطة بعد 3 ثوانٍ من ظهورها
-  setTimeout(() => {
-    cat.classList.remove('show');
-  }, 3100);
-}
-
-// تشغيل الحركة لأول مرة بعد 5 ثوانٍ من فتح الموقع
-setTimeout(catPeekAnimation, 5000);
-
-// تكرار الحركة كل 30 ثانية (30000 مللي ثانية)
-setInterval(catPeekAnimation, 30000);
-
-  // تحديد الموقع بناءً على مكان الماوس الحالي والتمرير
   const x = window.mouseX || window.innerWidth / 2;
   const y = window.scrollY + (window.mouseY || 200);
 
-  // تناوب الأثر بين القدم اليمنى واليسرى
   const offsetX = isRightFoot ? 15 : -15;
   isRightFoot = !isRightFoot;
 
@@ -122,7 +82,6 @@ setInterval(catPeekAnimation, 30000);
 
   document.body.appendChild(paw);
 
-  // اختفاء الأثر تدريجياً وحذفه من الصفحة
   setTimeout(() => {
     paw.style.opacity = '0';
     paw.style.transform = 'scale(0.8)';
@@ -139,18 +98,43 @@ window.addEventListener('mousemove', (e) => {
   window.mouseY = e.clientY;
 });
 
+// حركة القط الخلسة
+function catPeekAnimation() {
+  const cat = document.getElementById('peeking-cat');
+  if (!cat) return;
+
+  const isLeft = Math.random() > 0.5;
+  
+  cat.className = 'peeking-cat';
+  cat.style.display = 'block';
+
+  if (isLeft) {
+    cat.classList.add('peek-left');
+  } else {
+    cat.classList.add('peek-right');
+  }
+
+  setTimeout(() => {
+    cat.classList.add('show');
+  }, 100);
+
+  setTimeout(() => {
+    cat.classList.remove('show');
+  }, 3100);
+}
+
+setTimeout(catPeekAnimation, 5000);
+setInterval(catPeekAnimation, 30000);
+
+
 /* =========================================
    عند تحميل الصفحة
 ========================================= */
 
 document.addEventListener("DOMContentLoaded", function () {
-
     updateHours();
-
     updateStatistics();
-
     loadSavedData();
-
 });
 
 
@@ -159,9 +143,7 @@ document.addEventListener("DOMContentLoaded", function () {
 ========================================= */
 
 function updateHours() {
-
     const hours = currentUser.hours;
-
     const navHours = document.getElementById("navHours");
     const heroHours = document.getElementById("heroHours");
 
@@ -173,11 +155,7 @@ function updateHours() {
         heroHours.textContent = hours;
     }
 
-
-    /* نسبة التقدم */
-
     const maxHours = 20;
-
     let percentage = (hours / maxHours) * 100;
 
     if (percentage > 100) {
@@ -185,7 +163,6 @@ function updateHours() {
     }
 
     const progress = document.getElementById("hoursProgress");
-
     const hoursPercent = document.getElementById("hoursPercent");
 
     if (progress) {
@@ -193,10 +170,8 @@ function updateHours() {
     }
 
     if (hoursPercent) {
-        hoursPercent.textContent =
-            Math.round(percentage) + "%";
+        hoursPercent.textContent = Math.round(percentage) + "%";
     }
-
 }
 
 
@@ -205,14 +180,10 @@ function updateHours() {
 ========================================= */
 
 function showHours() {
-
     showToast(
-        "رصيدك الحالي: " +
-        currentUser.hours +
-        " ساعات",
+        "رصيدك الحالي: " + currentUser.hours + " ساعات",
         "🕒"
     );
-
 }
 
 
@@ -221,30 +192,21 @@ function showHours() {
 ========================================= */
 
 function updateStatistics() {
-
-    const usersCount =
-        document.getElementById("usersCount");
-
-    const servicesCount =
-        document.getElementById("servicesCount");
-
-    const hoursCount =
-        document.getElementById("hoursCount");
-
+    const usersCount = document.getElementById("usersCount");
+    const servicesCount = document.getElementById("servicesCount");
+    const hoursCount = document.getElementById("hoursCount");
 
     if (usersCount) {
         usersCount.textContent = "128";
     }
 
     if (servicesCount) {
-        servicesCount.textContent =
-            services.length + 120;
+        servicesCount.textContent = services.length + 120;
     }
 
     if (hoursCount) {
         hoursCount.textContent = "486";
     }
-
 }
 
 
@@ -253,50 +215,32 @@ function updateStatistics() {
 ========================================= */
 
 function scrollToServices() {
-
-    const servicesSection =
-        document.getElementById("services");
+    const servicesSection = document.getElementById("services");
 
     if (servicesSection) {
-
         servicesSection.scrollIntoView({
             behavior: "smooth"
         });
-
     }
-
 }
 
 
 /* =========================================
-   فتح تسجيل الدخول
+   فتح واغلاق تسجيل الدخول
 ========================================= */
 
 function openLogin() {
-
-    const modal =
-        document.getElementById("loginModal");
-
+    const modal = document.getElementById("loginModal");
     if (modal) {
         modal.classList.add("show");
     }
-
 }
 
-
-/* =========================================
-   إغلاق تسجيل الدخول
-========================================= */
-
 function closeLogin() {
-
-    const modal =
-        document.getElementById("loginModal");
-
+    const modal = document.getElementById("loginModal");
     if (modal) {
         modal.classList.remove("show");
     }
-
 }
 
 
@@ -305,52 +249,23 @@ function closeLogin() {
 ========================================= */
 
 function login(event) {
-
     event.preventDefault();
 
-
-    const email =
-        document.getElementById("email").value;
-
-    const password =
-        document.getElementById("password").value;
-
+    const email = document.getElementById("email").value;
+    const password = document.getElementById("password").value;
 
     if (!email || !password) {
-
-        showToast(
-            "يرجى إدخال جميع البيانات",
-            "⚠️"
-        );
-
+        showToast("يرجى إدخال جميع البيانات", "⚠️");
         return;
     }
 
-
-    /*
-       تسجيل دخول تجريبي فقط.
-       لا يتم إرسال البيانات إلى خادم.
-    */
-
     currentUser.loggedIn = true;
-
     currentUser.email = email;
-
-    currentUser.name =
-        email.split("@")[0];
-
+    currentUser.name = email.split("@")[0];
 
     closeLogin();
-
-
-    showToast(
-        "تم تسجيل الدخول بنجاح",
-        "✓"
-    );
-
-
+    showToast("تم تسجيل الدخول بنجاح", "✓");
     updateNavigation();
-
 }
 
 
@@ -359,169 +274,93 @@ function login(event) {
 ========================================= */
 
 function updateNavigation() {
-
-    const loginButton =
-        document.querySelector(".login-btn");
+    const loginButton = document.querySelector(".login-btn");
 
     if (!loginButton) {
         return;
     }
 
-
     if (currentUser.loggedIn) {
-
-        loginButton.textContent =
-            currentUser.name;
-
+        loginButton.textContent = currentUser.name;
     } else {
-
-        loginButton.textContent =
-            "تسجيل الدخول";
-
+        loginButton.textContent = "تسجيل الدخول";
     }
-
 }
 
 
 /* =========================================
-   فتح إضافة خدمة
+   فتح واغلاق إضافة خدمة
 ========================================= */
 
 function openAddService() {
-
-    const modal =
-        document.getElementById("serviceModal");
-
+    const modal = document.getElementById("serviceModal");
     if (modal) {
         modal.classList.add("show");
     }
-
 }
 
-
-/* =========================================
-   إغلاق إضافة خدمة
-========================================= */
-
 function closeAddService() {
-
-    const modal =
-        document.getElementById("serviceModal");
-
+    const modal = document.getElementById("serviceModal");
     if (modal) {
         modal.classList.remove("show");
     }
-
 }
 
 
 /* =========================================
-   إضافة خدمة جديدة
+   إضافة خدمة جديدة (النسخة المحدثة)
 ========================================= */
 
 function addService(event) {
-
     event.preventDefault();
 
+    const nameInput = document.getElementById("serviceName");
+    const categoryInput = document.getElementById("serviceCategory");
+    const descriptionInput = document.getElementById("serviceDescription");
+    const hoursInput = document.getElementById("serviceHours");
 
-    const name =
-        document.getElementById("serviceName").value.trim();
-
-    const category =
-        document.getElementById("serviceCategory").value;
-
-    const description =
-        document.getElementById("serviceDescription").value.trim();
-
-    const hours =
-        Number(
-            document.getElementById("serviceHours").value
-        );
-
-
-    /* التحقق من البيانات */
-
-    if (
-        !name ||
-        !category ||
-        !description ||
-        !hours
-    ) {
-
-        showToast(
-            "يرجى تعبئة جميع البيانات",
-            "⚠️"
-        );
-
+    if (!nameInput || !categoryInput || !descriptionInput || !hoursInput) {
+        showToast("عذراً، حقول نموذج إضافة الخدمة غير متطابقة", "⚠️");
         return;
     }
 
+    const name = nameInput.value.trim();
+    const category = categoryInput.value;
+    const description = descriptionInput.value.trim();
+    const hours = Number(hoursInput.value);
+
+    if (!name || !category || !description || !hours) {
+        showToast("يرجى تعبئة جميع البيانات", "⚠️");
+        return;
+    }
 
     if (hours <= 0) {
-
-        showToast(
-            "عدد الساعات يجب أن يكون أكبر من صفر",
-            "⚠️"
-        );
-
+        showToast("عدد الساعات يجب أن يكون أكبر من صفر", "⚠️");
         return;
     }
 
-
-    /* إنشاء الخدمة */
-
     const newService = {
-
         name: name,
-
         category: category,
-
         description: description,
-
         hours: hours,
-
-        user: currentUser.name,
-
+        user: currentUser.name || "مستخدم جديد",
         rating: 5.0
-
     };
-
 
     services.push(newService);
 
-
-    /* إضافة الخدمة للواجهة */
-
+    saveData();
     renderService(newService);
-
-
-    /* إغلاق النافذة */
-
     closeAddService();
 
-
-    /* إعادة ضبط النموذج */
-
-    document.getElementById("serviceName").value = "";
-
-    document.getElementById("serviceCategory").value = "";
-
-    document.getElementById("serviceDescription").value = "";
-
-    document.getElementById("serviceHours").value = "";
-
+    nameInput.value = "";
+    categoryInput.value = "";
+    descriptionInput.value = "";
+    hoursInput.value = "";
 
     updateStatistics();
-
-
-    showToast(
-        "تمت إضافة خدمتك بنجاح",
-        "✓"
-    );
-
-
-    saveData();
-
+    showToast("تمت إضافة خدمتك بنجاح", "✓");
 }
 
 
@@ -530,316 +369,165 @@ function addService(event) {
 ========================================= */
 
 function renderService(service) {
-
-    const grid =
-        document.getElementById("servicesGrid");
+    const grid = document.getElementById("servicesGrid");
 
     if (!grid) {
         return;
     }
 
+    const article = document.createElement("article");
 
-    const article =
-        document.createElement("article");
+    article.className = "service-card";
+    article.dataset.category = service.category;
+    article.dataset.name = service.name;
 
-
-    article.className =
-        "service-card";
-
-
-    article.dataset.category =
-        service.category;
-
-
-    article.dataset.name =
-        service.name;
-
-
-    const categoryName =
-        getCategoryName(service.category);
-
-
-    const icon =
-        getCategoryIcon(service.category);
-
+    const categoryName = getCategoryName(service.category);
+    const icon = getCategoryIcon(service.category);
 
     article.innerHTML = `
-
         <div class="service-image">
             ${icon}
         </div>
-
         <div class="service-content">
-
             <div class="service-category">
                 ${categoryName}
             </div>
-
             <h3>
                 ${escapeHTML(service.name)}
             </h3>
-
             <p>
                 ${escapeHTML(service.description)}
             </p>
-
             <div class="service-user">
-
                 <div class="avatar">
                     ${getFirstLetter(service.user)}
                 </div>
-
                 <div>
                     <strong>
                         ${escapeHTML(service.user)}
                     </strong>
-
                     <small>
                         عضو في المنصة
                     </small>
                 </div>
-
                 <div class="rating">
                     ★ ${service.rating}
                 </div>
-
             </div>
-
             <div class="service-bottom">
-
                 <span>
                     🕒 ${service.hours} ساعات
                 </span>
-
-                <button
-                    onclick="requestService(
-                        '${escapeAttribute(service.name)}',
-                        ${service.hours}
-                    )">
-
+                <button onclick="requestService('${escapeAttribute(service.name)}', ${service.hours})">
                     طلب الخدمة
-
                 </button>
-
             </div>
-
         </div>
     `;
 
-
     grid.appendChild(article);
-
 }
 
 
 /* =========================================
-   أسماء التصنيفات
+   أسماء وأيقونات التصنيفات
 ========================================= */
 
 function getCategoryName(category) {
-
     const categories = {
-
         design: "التصميم",
-
         programming: "البرمجة",
-
         writing: "الكتابة",
-
         marketing: "التسويق",
-
         education: "التعليم",
-
         other: "أخرى"
-
     };
-
-
     return categories[category] || "أخرى";
-
 }
-
-
-/* =========================================
-   أيقونات التصنيفات
-========================================= */
 
 function getCategoryIcon(category) {
-
     const icons = {
-
         design: "🎨",
-
         programming: "💻",
-
         writing: "✍️",
-
         marketing: "📢",
-
         education: "📚",
-
         other: "✦"
-
     };
-
-
     return icons[category] || "✦";
-
 }
 
 
 /* =========================================
-   تصفية الخدمات
+   تصفية والبحث في الخدمات
 ========================================= */
 
 function filterServices(category, button) {
-
-    const cards =
-        document.querySelectorAll(".service-card");
-
-
-    const buttons =
-        document.querySelectorAll(".category");
-
-
-    /* إزالة active */
+    const cards = document.querySelectorAll(".service-card");
+    const buttons = document.querySelectorAll(".category");
 
     buttons.forEach(function (btn) {
-
         btn.classList.remove("active");
-
     });
 
-
-    /* إضافة active */
-
     if (button) {
-
         button.classList.add("active");
-
     }
-
 
     let visibleCards = 0;
 
-
     cards.forEach(function (card) {
+        const cardCategory = card.dataset.category;
 
-        const cardCategory =
-            card.dataset.category;
-
-
-        if (
-            category === "all" ||
-            cardCategory === category
-        ) {
-
+        if (category === "all" || cardCategory === category) {
             card.style.display = "";
-
             visibleCards++;
-
         } else {
-
             card.style.display = "none";
-
         }
-
     });
 
-
     updateNoResults(visibleCards);
-
 }
 
-
-/* =========================================
-   البحث
-========================================= */
-
 function searchServices() {
-
-    const input =
-        document.getElementById("searchInput");
-
+    const input = document.getElementById("searchInput");
 
     if (!input) {
         return;
     }
 
-
-    const search =
-        input.value
-            .toLowerCase()
-            .trim();
-
-
-    const cards =
-        document.querySelectorAll(".service-card");
-
-
+    const search = input.value.toLowerCase().trim();
+    const cards = document.querySelectorAll(".service-card");
     let visibleCards = 0;
 
-
     cards.forEach(function (card) {
+        const name = card.dataset.name.toLowerCase();
+        const text = card.textContent.toLowerCase();
 
-        const name =
-            card.dataset.name
-                .toLowerCase();
-
-
-        const text =
-            card.textContent
-                .toLowerCase();
-
-
-        if (
-            name.includes(search) ||
-            text.includes(search)
-        ) {
-
+        if (name.includes(search) || text.includes(search)) {
             card.style.display = "";
-
             visibleCards++;
-
         } else {
-
             card.style.display = "none";
-
         }
-
     });
 
-
     updateNoResults(visibleCards);
-
 }
 
-
-/* =========================================
-   لا توجد نتائج
-========================================= */
-
 function updateNoResults(count) {
-
-    const noResults =
-        document.getElementById("noResults");
-
+    const noResults = document.getElementById("noResults");
 
     if (!noResults) {
         return;
     }
 
-
     if (count === 0) {
-
         noResults.style.display = "block";
-
     } else {
-
         noResults.style.display = "none";
-
     }
-
 }
 
 
@@ -848,63 +536,27 @@ function updateNoResults(count) {
 ========================================= */
 
 function requestService(serviceName, hours) {
-
-
     if (!currentUser.loggedIn) {
-
-        showToast(
-            "سجلي الدخول أولاً لطلب الخدمة",
-            "🔐"
-        );
-
+        showToast("سجلي الدخول أولاً لطلب الخدمة", "🔐");
         openLogin();
-
         return;
     }
-
 
     if (currentUser.hours < hours) {
-
-        showToast(
-            "رصيدك لا يكفي لهذه الخدمة",
-            "⚠️"
-        );
-
+        showToast("رصيدك لا يكفي لهذه الخدمة", "⚠️");
         return;
     }
 
-
-    const confirmation =
-        confirm(
-            "هل تريدين طلب خدمة:\n\n" +
-            serviceName +
-            "\n\nالتكلفة: " +
-            hours +
-            " ساعات؟"
-        );
-
+    const confirmation = confirm("هل تريدين طلب خدمة:\n\n" + serviceName + "\n\nالتكلفة: " + hours + " ساعات؟");
 
     if (!confirmation) {
         return;
     }
 
-
-    /* خصم الساعات */
-
     currentUser.hours -= hours;
-
-
     updateHours();
-
-
-    showToast(
-        "تم طلب الخدمة بنجاح",
-        "✓"
-    );
-
-
+    showToast("تم طلب الخدمة بنجاح", "✓");
     saveData();
-
 }
 
 
@@ -913,98 +565,46 @@ function requestService(serviceName, hours) {
 ========================================= */
 
 function showToast(message, icon = "✓") {
-
-    const toast =
-        document.getElementById("toast");
-
-
-    const toastMessage =
-        document.getElementById("toastMessage");
-
-
-    const toastIcon =
-        document.getElementById("toastIcon");
-
+    const toast = document.getElementById("toast");
+    const toastMessage = document.getElementById("toastMessage");
+    const toastIcon = document.getElementById("toastIcon");
 
     if (!toast) {
         return;
     }
 
-
-    toastMessage.textContent =
-        message;
-
-
-    toastIcon.textContent =
-        icon;
-
-
+    toastMessage.textContent = message;
+    toastIcon.textContent = icon;
     toast.classList.add("show");
 
-
     setTimeout(function () {
-
         toast.classList.remove("show");
-
     }, 3000);
-
 }
 
 
 /* =========================================
-   إغلاق النوافذ عند الضغط خارجها
+   إغلاق النوافذ عند النقر خارجها أو ضغط ESC
 ========================================= */
 
-window.addEventListener(
-    "click",
-    function (event) {
+window.addEventListener("click", function (event) {
+    const loginModal = document.getElementById("loginModal");
+    const serviceModal = document.getElementById("serviceModal");
 
-        const loginModal =
-            document.getElementById("loginModal");
-
-        const serviceModal =
-            document.getElementById("serviceModal");
-
-
-        if (
-            event.target === loginModal
-        ) {
-
-            closeLogin();
-
-        }
-
-
-        if (
-            event.target === serviceModal
-        ) {
-
-            closeAddService();
-
-        }
-
+    if (event.target === loginModal) {
+        closeLogin();
     }
-);
-
-
-/* =========================================
-   زر ESC لإغلاق النوافذ
-========================================= */
-
-document.addEventListener(
-    "keydown",
-    function (event) {
-
-        if (event.key === "Escape") {
-
-            closeLogin();
-
-            closeAddService();
-
-        }
-
+    if (event.target === serviceModal) {
+        closeAddService();
     }
-);
+});
+
+document.addEventListener("keydown", function (event) {
+    if (event.key === "Escape") {
+        closeLogin();
+        closeAddService();
+    }
+});
 
 
 /* =========================================
@@ -1012,239 +612,89 @@ document.addEventListener(
 ========================================= */
 
 function openRegister() {
-
     closeLogin();
-
-
-    showToast(
-        "سيتم إضافة صفحة إنشاء الحساب لاحقًا",
-        "ℹ️"
-    );
-
+    showToast("سيتم إضافة صفحة إنشاء الحساب لاحقًا", "ℹ️");
 }
 
 
 /* =========================================
-   حفظ البيانات في المتصفح
+   حفظ وتحميل البيانات في المتصفح
 ========================================= */
 
 function saveData() {
-
     const data = {
-
         currentUser: currentUser,
-
         services: services
-
     };
-
 
     localStorage.setItem(
         "skillsWarehouseData",
         JSON.stringify(data)
     );
-
 }
 
-
-/* =========================================
-   تحميل البيانات
-========================================= */
-
 function loadSavedData() {
-
-    const saved =
-        localStorage.getItem(
-            "skillsWarehouseData"
-        );
-
+    const saved = localStorage.getItem("skillsWarehouseData");
 
     if (!saved) {
         return;
     }
 
-
     try {
-
-        const data =
-            JSON.parse(saved);
-
+        const data = JSON.parse(saved);
 
         if (data.currentUser) {
-
-            currentUser =
-                data.currentUser;
-
+            currentUser = data.currentUser;
         }
-
-
-        if (
-            data.services &&
-            Array.isArray(data.services)
-        ) {
-
-            /*
-               الخدمات الأساسية موجودة
-               مسبقًا في HTML.
-            */
-
-        }
-
 
         updateHours();
-
         updateNavigation();
-
     } catch (error) {
-
-        console.log(
-            "تعذر تحميل البيانات."
-        );
-
+        console.log("تعذر تحميل البيانات.");
     }
-
 }
 
 
 /* =========================================
-   الحصول على أول حرف
+   دوال مساعدة (نصوص وحماية)
 ========================================= */
 
 function getFirstLetter(name) {
-
     if (!name) {
         return "؟";
     }
-
-
     return name.trim().charAt(0);
-
 }
-
-
-/* =========================================
-   حماية النصوص المعروضة في HTML
-========================================= */
 
 function escapeHTML(text) {
-
     return String(text)
-
         .replace(/&/g, "&amp;")
-
         .replace(/</g, "&lt;")
-
         .replace(/>/g, "&gt;")
-
         .replace(/"/g, "&quot;")
-
         .replace(/'/g, "&#039;");
-
 }
-
-
-/* =========================================
-   حماية النصوص المستخدمة في attributes
-========================================= */
 
 function escapeAttribute(text) {
-
     return String(text)
-
         .replace(/\\/g, "\\\\")
-
         .replace(/'/g, "\\'")
-
         .replace(/"/g, "&quot;");
-
 }
 
 
 /* =========================================
-   منع إرسال النماذج بالضغط على Enter
-   في بعض الحالات غير المطلوبة
+   إدارة روابط الملف الشخصي
 ========================================= */
 
-document.addEventListener(
-    "keypress",
-    function (event) {
-
-        if (
-            event.key === "Enter" &&
-            event.target.tagName === "INPUT"
-        ) {
-
-            const form =
-                event.target.closest("form");
-
-
-            if (
-                form &&
-                !form.onsubmit
-            ) {
-
-                event.preventDefault();
-
-            }
-
-        }
-
-    }
-);
-
-
-/* =========================================
-   رسالة ترحيب عند فتح الموقع
-========================================= */
-
-setTimeout(function () {
-
-    showToast(
-        "أهلًا بك في مِستودع المهارات 👋",
-        "✦"
-    );
-
-}, 1000);
-
-
 document.addEventListener('DOMContentLoaded', () => {
-    // تحديد جميع أزرار عرض الملف الشخصي
-    const profileButtons = document.querySelectorAll('.view-profile-btn');
-
-    profileButtons.forEach(button => {
-        button.addEventListener('click', (event) => {
-            // الوصول للعنصر الأب (بطاقة المستخدم) للحصول على مسار الملف
-            const userCard = event.target.closest('.user-card');
-            const filePath = userCard.getAttribute('data-file');
-
-            if (filePath) {
-                // الانتقال إلى ملف المستخدم في نفس النافذة
-                window.location.href = filePath;
-                
-                // أو لفتحه في تبويب جديد، استخدم السطر التالي بدلاً من الأعلي:
-                // window.open(filePath, '_blank');
-            } else {
-                console.error("لم يتم تحديد مسار الملف لهذا المستخدم.");
-            }
-        });
-    });
-});
-
-
-
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    // التقاط جميع الأزرار التي تحمل الكلاس
     const buttons = document.querySelectorAll('.view-profile-btn');
 
     buttons.forEach(button => {
         button.addEventListener('click', function() {
-            // قراءة المسار المكتوب داخل الزر مباشرة
             const filePath = this.getAttribute('data-file');
             
             if (filePath) {
-                // التوجيه إلى الصفحة
                 window.location.href = filePath;
             } else {
                 alert('عذراً، مسار الملف غير موجود!');
@@ -1252,3 +702,12 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 });
+
+
+/* =========================================
+   رسالة ترحيب أولية
+========================================= */
+
+setTimeout(function () {
+    showToast("أهلًا بك في مِستودع المهارات 👋", "✦");
+}, 1000);
