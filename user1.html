@@ -54,6 +54,7 @@
             box-shadow: 0 10px 25px rgba(0,0,0,0.3);
             border: 1px solid #334155;
             margin-bottom: 30px;
+            position: relative;
         }
 
         .avatar {
@@ -68,6 +69,10 @@
             color: #fff;
             border: 3px solid #38bdf8;
             flex-shrink: 0;
+        }
+
+        .user-info {
+            flex: 1;
         }
 
         .user-info h1 {
@@ -90,6 +95,29 @@
         .user-info p {
             color: #94a3b8;
             font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        /* زر طلب تبادل الخدمة */
+        .exchange-btn {
+            background: linear-gradient(135deg, #38bdf8, #6366f1);
+            color: #ffffff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 0.95rem;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(56, 189, 248, 0.25);
+        }
+
+        .exchange-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 18px rgba(56, 189, 248, 0.4);
         }
 
         /* أقسام الصفحة */
@@ -104,7 +132,39 @@
             padding-right: 10px;
         }
 
-        /* شبكة الأعمال والمشاريع الوهمية */
+        /* شبكة الخدمات المتاحة */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .service-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .service-card h3 {
+            font-size: 1rem;
+            color: #f1f5f9;
+        }
+
+        .service-card .hours {
+            background: rgba(99, 102, 241, 0.2);
+            color: #818cf8;
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+
+        /* شبكة الأعمال والمشاريع */
         .projects-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -260,6 +320,83 @@
             background: #7dd3fc;
         }
 
+        /* نافذة طلب التبادل (Modal) */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(15, 23, 42, 0.8);
+            backdrop-filter: blur(4px);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            background: #1e293b;
+            border: 1px solid #334155;
+            border-radius: 16px;
+            padding: 25px;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+
+        .modal-header h3 {
+            color: #38bdf8;
+        }
+
+        .close-btn {
+            background: none;
+            border: none;
+            color: #94a3b8;
+            font-size: 1.2rem;
+            cursor: pointer;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            color: #cbd5e1;
+            font-size: 0.9rem;
+        }
+
+        .form-group input, .form-group textarea, .form-group select {
+            width: 100%;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 10px;
+            color: #fff;
+            outline: none;
+        }
+
+        .submit-btn {
+            width: 100%;
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
         @media (max-width: 600px) {
             .profile-card {
                 flex-direction: column;
@@ -283,6 +420,22 @@
             <h1>أحمد علي القحطاني</h1>
             <span class="badge">محلل أمن سيبراني وخبير ثغرات</span>
             <p>شغوف باكتشاف الثغرات في تطبيقات الويب وبناء أدوات الحماية التلقائية. أعمل على مساعدة الشركات لتأمين بنيتها التحتية وتطوير الحلول البرمجية الآمنة.</p>
+            <button class="exchange-btn" onclick="openModal()">
+                <i class="fa-solid fa-arrows-rotate"></i> طلب تبادل خدمة
+            </button>
+        </div>
+    </div>
+
+    <!-- قسم الخدمات المتاحة للتبادل -->
+    <h2 class="section-title"><i class="fa-solid fa-handshake"></i> الخدمات المتاحة للتبادل</h2>
+    <div class="services-grid">
+        <div class="service-card">
+            <h3>فحص أمني وتدقيق ثغرات الويب</h3>
+            <span class="hours">3 ساعات</span>
+        </div>
+        <div class="service-card">
+            <h3>إعداد نظام محاكاة التصيد التوعوي</h3>
+            <span class="hours">5 ساعات</span>
         </div>
     </div>
 
@@ -337,12 +490,10 @@
 
     </div>
 
-    <!-- قسم التعليقات والتوصيات الوهمية -->
+    <!-- قسم التعليقات والتوصيات -->
     <h2 class="section-title"><i class="fa-solid fa-comments"></i> آراء الزملاء (التعليقات)</h2>
     <div class="comments-section">
         <div id="comments-container">
-            
-            <!-- تعليق وهمي 1 -->
             <div class="comment-item">
                 <div class="comment-avatar">سـ</div>
                 <div class="comment-content">
@@ -351,7 +502,6 @@
                 </div>
             </div>
 
-            <!-- تعليق وهمي 2 -->
             <div class="comment-item">
                 <div class="comment-avatar">مـ</div>
                 <div class="comment-content">
@@ -359,16 +509,6 @@
                     <p>تعاملت مع أحمد في مشروع تقييم مخاطر الشبكة، متمكن وسريع ويشرح التقرير بطريقة واضحة جداً. بالتوفيق لك!</p>
                 </div>
             </div>
-
-            <!-- تعليق وهمي 3 -->
-            <div class="comment-item">
-                <div class="comment-avatar">رـ</div>
-                <div class="comment-content">
-                    <h4>ريما الفهد <span>منذ أسبوع</span></h4>
-                    <p>نظام محاكاة التصيد كان مبهر وفاد الفريق بشكل كبير في زيادة الوعي الرقمي. مبدع دائماً.</p>
-                </div>
-            </div>
-
         </div>
 
         <!-- إضافة تعليق تفاعلي -->
@@ -379,8 +519,52 @@
     </div>
 </div>
 
+<!-- نافذة طلب التبادل (Modal) -->
+<div class="modal" id="exchangeModal">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h3>طلب تبادل خدمة مع أحمد</h3>
+            <button class="close-btn" onclick="closeModal()">&times;</button>
+        </div>
+        <form id="exchangeForm" onsubmit="submitExchange(event)">
+            <div class="form-group">
+                <label>الخدمة المطلوبة من أحمد:</label>
+                <select required>
+                    <option value="">اختر الخدمة...</option>
+                    <option value="1">فحص أمني وتدقيق ثغرات الويب</option>
+                    <option value="2">إعداد نظام محاكاة التصيد التوعوي</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>الخدمة التي تقدمها في المقابل:</label>
+                <input type="text" placeholder="مثال: تصميم واجهات، كتابة محتوى..." required>
+            </div>
+            <div class="form-group">
+                <label>تفاصيل إضافية:</label>
+                <textarea rows="3" placeholder="اشرح تفاصيل الطلب والمواعيد المقترحة..."></textarea>
+            </div>
+            <button type="submit" class="submit-btn">إرسال طلب التبادل</button>
+        </form>
+    </div>
+</div>
+
 <script>
-    // كود تفاعلي لإضافة تعليق جديد فوراً في الصفحة
+    // التحكم بفتح وإغلاق نافذة التبادل
+    function openModal() {
+        document.getElementById('exchangeModal').style.display = 'flex';
+    }
+
+    function closeModal() {
+        document.getElementById('exchangeModal').style.display = 'none';
+    }
+
+    function submitExchange(event) {
+        event.preventDefault();
+        alert('تم إرسال طلب التبادل إلى أحمد بنجاح!');
+        closeModal();
+    }
+
+    // إضافة تعليق جديد
     function addComment() {
         const input = document.getElementById('comment-input');
         const text = input.value.trim();
@@ -399,7 +583,7 @@
             `;
 
             container.appendChild(newComment);
-            input.value = ""; // تفريغ الخانة
+            input.value = "";
         } else {
             alert("يرجى كتابة التعليق أولاً!");
         }
