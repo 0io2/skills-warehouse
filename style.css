@@ -2333,3 +2333,87 @@ text-align: center;
     color: #2563eb !important;
 }
 
+/* =========================================
+   تعديل وتوحيد الثيم لصفحات (إنشاء الحساب، من نحن، تواصل معنا، الأسئلة الشائعة)
+========================================= */
+
+/* صفحات المصادقة (إنشاء الحساب وتسجيل الدخول) */
+body.auth-page {
+    background-color: var(--background) !important;
+}
+
+.auth-card, .content-card-box, .about-container-box {
+    background: var(--card-bg) !important;
+    border: 1px solid var(--border) !important;
+    box-shadow: var(--shadow) !important;
+}
+
+.auth-header h2, .about-container-box h2, .content-card-box h2 {
+    color: var(--white) !important;
+}
+
+.auth-header p, .about-lead, .about-container-box p, .content-card-box p, .meta-item {
+    color: var(--text-light) !important;
+}
+
+.logo-back {
+    color: var(--secondary) !important;
+}
+.logo-back:hover {
+    color: var(--white) !important;
+}
+
+.auth-card label, .auth-card input, .auth-card input:focus {
+    background-color: var(--background) !important;
+    color: var(--white) !important;
+    border-color: var(--border) !important;
+}
+
+.auth-card input:focus {
+    border-color: var(--primary) !important;
+    box-shadow: 0 0 0 3px rgba(142, 123, 176, 0.2) !important;
+}
+
+/* بطاقات المعلومات ومربعات المشروع داخل صفحات المحتوى */
+.about-page-main, .page-content-wrapper, .faq-page {
+    background-color: var(--background) !important;
+}
+
+.about-info-card, .info-box, .project-meta-grid {
+    background: var(--background) !important;
+    border: 1px solid var(--border) !important;
+}
+
+.about-info-card h3, .info-box h3, .meta-item strong {
+    color: var(--white) !important;
+}
+
+.about-info-card p, .info-box p, .meta-item {
+    color: var(--text-light) !important;
+}
+
+.divider {
+    background: var(--border) !important;
+}
+
+.developers-list li {
+    color: var(--text) !important;
+}
+
+/* قسم هيرو الأسئلة الشائعة (FAQ Hero) */
+.faq-hero {
+    background: linear-gradient(
+        135deg,
+        var(--card-bg) 0%,
+        var(--background) 100%
+    ) !important;
+    border-bottom: 1px solid var(--border);
+}
+
+.faq-hero h2 {
+    color: var(--white) !important;
+}
+
+.faq-hero p {
+    color: var(--text-light) !important;
+}
