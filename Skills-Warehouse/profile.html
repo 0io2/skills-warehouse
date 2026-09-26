@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي | مستودع المهارات</title>
+    <!-- ملف التصميم المشترك -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         شريط التنقل (Navbar)
+    ========================== -->
+    <header class="navbar">
+        <div class="logo">
+            <span class="logo-icon">م</span>
+            <div>
+                <h1>مِستودع المهارات</h1>
+                <small>Skills Warehouse</small>
+            </div>
+        </div>
+
+        <nav>
+            <a href="index.html">الرئيسية</a>
+            <a href="index.html#services">الخدمات</a>
+            <a href="index.html#how-it-works">كيف تعمل؟</a>
+            <a href="faq.html">الأسئلة الشائعة</a>
+            <a href="index.html#users">المستخدمون</a>
+            <a href="about.html">من نحن</a>
+        </nav>
+
+        <div class="nav-actions">
+            <button class="hours-btn" onclick="showHours()">
+                🕒 <span id="navHours">5</span> ساعة
+            </button>
+            <button class="login-btn" onclick="openLogin()">
+                تسجيل الدخول
+            </button>
+        </div>
+    </header>
+
+    <!-- =========================
+         محتوى البروفايل (Profile Main)
+    ========================== -->
+    <main style="max-width: 1000px; margin: 40px auto; padding: 0 20px;">
+
+        <!-- بطاقة معلومات المستخدم الرأسية -->
+        <section class="profile-header-card" style="background: #ffffff; border-radius: 16px; padding: 32px; box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); border: 1px solid #e5e7eb; display: flex; gap: 24px; align-items: center; flex-wrap: wrap;">
+            
+            <div class="large-avatar" style="width: 100px; height: 100px; border-radius: 50%; background: #4f46e5; color: white; display: flex; align-items: center; justify-content: center; font-size: 40px; font-weight: bold;" id="profileAvatar">
+                ن
+            </div>
+
+            <div style="flex: 1;">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 8px;">
+                    <h2 id="profileName" style="margin: 0; font-size: 28px; color: #1f2937;">نورة العتيبي</h2>
+                    <span id="profileRating" style="background: #fef3c7; color: #d97706; padding: 4px 12px; border-radius: 20px; font-weight: bold; font-size: 14px;">★ 4.9</span>
+                </div>
+                
+                <p id="profileTitle" style="color: #4f46e5; font-size: 16px; margin: 0 0 12px 0; font-weight: 600;">مصممة جرافيك متخصصة في الهويات البصرية</p>
+                <p id="profileBio" style="color: #6b7280; margin: 0 0 16px 0; line-height: 1.6;">أساعد المشاريع الناشئة وصنّاع المحتوى في بناء هويات بصرية مميزة وجذابة تعكس قيمهم وتجذب عملائهم المستهدفين.</p>
+                
+                <div id="profileSkills" style="display: flex; gap: 8px; flex-wrap: wrap;">
+                    <span style="background: #f3f4f6; color: #374151; padding: 6px 14px; border-radius: 20px; font-size: 13px;">تصميم شعارات</span>
+                    <span style="background: #f3f4f6; color: #374151; padding: 6px 14px; border-radius: 20px; font-size: 13px;">هوية بصرية</span>
+                    <span style="background: #f3f4f6; color: #374151; padding: 6px 14px; border-radius: 20px; font-size: 13px;">إلستريتور</span>
+                    <span style="background: #f3f4f6; color: #374151; padding: 6px 14px; border-radius: 20px; font-size: 13px;">فوتوشوب</span>
+                </div>
+            </div>
+
+            <div style="display: flex; flex-direction: column; gap: 10px; width: 100%; max-width: 200px;">
+                <button onclick="requestExchange()" class="primary-btn" style="width: 100%; padding: 12px; background: #4f46e5; color: white; border: none; border-radius: 10px; font-size: 15px; font-weight: bold; cursor: pointer;">
+                    🤝 طلب تبادل خدمة
+                </button>
+            </div>
+        </section>
+
+        <!-- قسم خدمات العضو -->
+        <section style="margin-top: 40px;">
+            <h3 style="font-size: 22px; color: #1f2937; margin-bottom: 20px;">الخدمات المتاحة لهذا العضو</h3>
+            
+            <div class="services-grid" id="userServicesGrid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px;">
+                
+                <!-- خدمة العضو -->
+                <article class="service-card" style="background: white; border-radius: 12px; border: 1px solid #e5e7eb; padding: 20px;">
+                    <div style="font-size: 32px; margin-bottom: 12px;">🎨</div>
+                    <span style="color: #4f46e5; font-size: 12px; font-weight: bold;">التصميم</span>
+                    <h4 style="font-size: 18px; margin: 8px 0; color: #1f2937;">تصميم هوية بصرية</h4>
+                    <p style="color: #6b7280; font-size: 14px; margin-bottom: 16px;">تصميم شعار وهوية بصرية بسيطة للمشاريع والحسابات تشمل اختيار الألوان والخطوط.</p>
+                    <div style="display: flex; justify-content: space-between; align-items: center; border-top: 1px solid #f3f4f6; padding-top: 12px;">
+                        <span style="font-weight: bold; color: #374151;">🕒 3 ساعات</span>
+                        <button onclick="requestExchange()" style="background: #e0e7ff; color: #4338ca; border: none; padding: 6px 14px; border-radius: 6px; cursor: pointer; font-weight: 600;">طلب الخدمة</button>
+                    </div>
+                </article>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- =========================
+         التذييل (Footer)
+    ========================== -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-brand">
+                <h2>مِستودع المهارات</h2>
+                <p>منصة تبادل المهارات والخدمات عبر نظام بنك الساعات الرقمي.</p>
+            </div>
+            <div class="footer-links">
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="index.html#services">الخدمات</a></li>
+                    <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة &copy; 2026 مِستودع المهارات - Skills Warehouse</p>
+        </div>
+    </footer>
+
+    <!-- سكريبت بسيط لقراءة اسم المستخدم من الـ URL وتغيير البيانات -->
+    <script>
+        // قراءة اسم المستخدم من الـ URL (مثال: profile.html?user=mohammed)
+        const urlParams = new URLSearchParams(window.location.search);
+        const user = urlParams.get('user');
+
+        // قاعدة بيانات مصغرة للأعضاء للعرض
+        const usersData = {
+            noura: {
+                name: "نورة العتيبي",
+                avatar: "ن",
+                title: "مصممة جرافيك متخصصة في الهويات البصرية",
+                bio: "أساعد المشاريع الناشئة وصنّاع المحتوى في بناء هويات بصرية مميزة وجذابة تعكس قيمهم وتجذب عملائهم المستهدفين.",
+                rating: "★ 4.9",
+                skills: ["تصميم شعارات", "هوية بصرية", "إلستريتور", "فوتوشوب"]
+            },
+            mohammed: {
+                name: "محمد القحطاني",
+                avatar: "م",
+                title: "مطور ويب واجهات أمامية (Front-End Developer)",
+                bio: "مطور شغوف بإنشاء مواقع ويب سريعة ومتجاوبة مع كافة الشاشات باستخدام أحدث تقنيات HTML, CSS, JavaScript.",
+                rating: "★ 4.8",
+                skills: ["HTML5", "CSS3", "JavaScript", "تجاوب الشاشات"]
+            },
+            sara: {
+                name: "سارة أحمد",
+                avatar: "س",
+                title: "كاتبة محتوى ومترجمة",
+                bio: "أكتب مقالات ومحتوى إبداعي للمواقع والحسابات، بالإضافة إلى تقديم خدمات الترجمة والتدقيق اللغوي الاحترافي.",
+                rating: "★ 5.0",
+                skills: ["كتابة المحتوى", "ترجمة", "تدقيق لغوي", "كتابة إعلانية"]
+            },
+            reem: {
+                name: "ريم الشهري",
+                avatar: "ر",
+                title: "مسوقة رقمية ومديرة حسابات",
+                bio: "أساعدك في وضع خطط المحتوى التسويقية، وتحليل المنافسين، وإدارة حساباتك على منصات التواصل لإبراز علامتك التجارية.",
+                rating: "★ 4.7",
+                skills: ["إدارة حسابات", "خطط محتوى", "تسويق رقمي", "تحليل أداء"]
+            }
+        };
+
+        // تحديث البيانات إذا كان العضو موجوداً
+        if (user && usersData[user]) {
+            const data = usersData[user];
+            document.getElementById('profileName').textContent = data.name;
+            document.getElementById('profileAvatar').textContent = data.avatar;
+            document.getElementById('profileTitle').textContent = data.title;
+            document.getElementById('profileBio').textContent = data.bio;
+            document.getElementById('profileRating').textContent = data.rating;
+
+            // تحديث المهارات
+            const skillsContainer = document.getElementById('profileSkills');
+            skillsContainer.innerHTML = data.skills.map(s => `<span style="background: #f3f4f6; color: #374151; padding: 6px 14px; border-radius: 20px; font-size: 13px;">${s}</span>`).join('');
+        }
+
+        function requestExchange() {
+            alert("تم إرسال طلب تبادل الخدمة بنجاح! سيتم إشعاراتك عند قبول الطلب.");
+        }
+
+
+
+
+
+
+        
+    </script>
+</body>
+
+</html>

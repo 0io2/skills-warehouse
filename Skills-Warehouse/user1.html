@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - أحمد علي</title>
+    <!-- استدعاء مكتبة الأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0f172a;
+            color: #f8fafc;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        /* زر العودة */
+        .back-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #38bdf8;
+            text-decoration: none;
+            font-weight: bold;
+            margin-bottom: 20px;
+            transition: 0.3s;
+        }
+
+        .back-btn:hover {
+            color: #818cf8;
+            transform: translateX(5px);
+        }
+
+        /* كارت البروفايل الرئيسي */
+        .profile-card {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 30px;
+            display: flex;
+            align-items: center;
+            gap: 25px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            border: 1px solid #334155;
+            margin-bottom: 30px;
+        }
+
+        .avatar {
+            width: 110px;
+            height: 110px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6366f1, #38bdf8);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2.8rem;
+            color: #fff;
+            border: 3px solid #38bdf8;
+            flex-shrink: 0;
+        }
+
+        .user-info h1 {
+            font-size: 1.8rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+        }
+
+        .user-info .badge {
+            display: inline-block;
+            background: rgba(56, 189, 248, 0.15);
+            color: #38bdf8;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        .user-info p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        /* أقسام الصفحة */
+        .section-title {
+            font-size: 1.3rem;
+            color: #f8fafc;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-right: 4px solid #38bdf8;
+            padding-right: 10px;
+        }
+
+        /* شبكة الأعمال والمشاريع الوهمية */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .project-card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .project-card {
+            background: #1e293b;
+            border-radius: 12px;
+            padding: 20px;
+            border: 1px solid #334155;
+            transition: all 0.3s ease;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #38bdf8;
+            box-shadow: 0 8px 20px rgba(56, 189, 248, 0.15);
+        }
+
+        .project-card h3 {
+            color: #38bdf8;
+            font-size: 1.1rem;
+            margin-bottom: 10px;
+        }
+
+        .project-card p {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        .project-tags {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            background: #0f172a;
+            color: #cbd5e1;
+            font-size: 0.75rem;
+            padding: 3px 8px;
+            border-radius: 4px;
+        }
+
+        .view-link-text {
+            font-size: 0.8rem;
+            color: #38bdf8;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .project-card:hover .view-link-text {
+            text-decoration: underline;
+        }
+
+        /* قسم التعليقات */
+        .comments-section {
+            background: #1e293b;
+            border-radius: 16px;
+            padding: 25px;
+            border: 1px solid #334155;
+        }
+
+        .comment-item {
+            display: flex;
+            gap: 15px;
+            padding: 15px 0;
+            border-bottom: 1px solid #334155;
+        }
+
+        .comment-item:last-child {
+            border-bottom: none;
+        }
+
+        .comment-avatar {
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: #334155;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #38bdf8;
+            flex-shrink: 0;
+        }
+
+        .comment-content h4 {
+            font-size: 0.95rem;
+            color: #f1f5f9;
+        }
+
+        .comment-content span {
+            font-size: 0.75rem;
+            color: #64748b;
+        }
+
+        .comment-content p {
+            font-size: 0.9rem;
+            color: #cbd5e1;
+            margin-top: 5px;
+        }
+
+        /* نموذج إضافة تعليق تفاعلي */
+        .add-comment-box {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .add-comment-box input {
+            flex: 1;
+            background: #0f172a;
+            border: 1px solid #334155;
+            border-radius: 8px;
+            padding: 10px 15px;
+            color: #fff;
+            outline: none;
+        }
+
+        .add-comment-box input:focus {
+            border-color: #38bdf8;
+        }
+
+        .add-comment-box button {
+            background: #38bdf8;
+            color: #0f172a;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .add-comment-box button:hover {
+            background: #7dd3fc;
+        }
+
+        @media (max-width: 600px) {
+            .profile-card {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <!-- زر العودة للرئيسية -->
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
+
+    <!-- كارت البروفايل الرئيسي -->
+    <div class="profile-card">
+        <div class="avatar">
+            <i class="fa-solid fa-user-shield"></i>
+        </div>
+        <div class="user-info">
+            <h1>أحمد علي القحطاني</h1>
+            <span class="badge">محلل أمن سيبراني وخبير ثغرات</span>
+            <p>شغوف باكتشاف الثغرات في تطبيقات الويب وبناء أدوات الحماية التلقائية. أعمل على مساعدة الشركات لتأمين بنيتها التحتية وتطوير الحلول البرمجية الآمنة.</p>
+        </div>
+    </div>
+
+    <!-- معرض الأعمال والمشاريع بالروابط -->
+    <h2 class="section-title"><i class="fa-solid fa-laptop-code"></i> الأعمال والمشاريع</h2>
+    <div class="projects-grid">
+
+        <!-- المشروع الأول -->
+        <a href="https://github.com/epsylon/xserter" target="_blank" class="project-card-link">
+            <div class="project-card">
+                <div>
+                    <h3>أداة WebGuard Inspect</h3>
+                    <p>سكربت فاحص متقدم يقوم بتحليل ثغرات الـ Cross-Site Scripting تلقائياً واستخراج التقارير.</p>
+                    <div class="project-tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">Security</span>
+                    </div>
+                </div>
+                <span class="view-link-text">معاينة المشروع على GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </div>
+        </a>
+
+        <!-- المشروع الثاني -->
+        <a href="https://github.com/gophish/gophish" target="_blank" class="project-card-link">
+            <div class="project-card">
+                <div>
+                    <h3>نظام محاكاة التصيد الاحتيالي</h3>
+                    <p>منصة تدريبية تفاعلية لتوعية الموظفين بالهجمات الهندسة الاجتماعية وكيفية اكتشافها.</p>
+                    <div class="project-tags">
+                        <span class="tag">Go</span>
+                        <span class="tag">Cyber Awareness</span>
+                    </div>
+                </div>
+                <span class="view-link-text">معاينة المنصة على GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </div>
+        </a>
+
+        <!-- المشروع الثالث -->
+        <a href="https://github.com/telekom-security/tpotce" target="_blank" class="project-card-link">
+            <div class="project-card">
+                <div>
+                    <h3>مشروع Honeypot - مصيدة المهاجمين</h3>
+                    <p>نظام دفاعي وهمي لاستدراج المهاجمين وتحليل سلوكهم وتقنيات الاختراق المستخدمة.</p>
+                    <div class="project-tags">
+                        <span class="tag">Network</span>
+                        <span class="tag">Cyber Defense</span>
+                    </div>
+                </div>
+                <span class="view-link-text">معاينة النظام على GitHub <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </div>
+        </a>
+
+    </div>
+
+    <!-- قسم التعليقات والتوصيات الوهمية -->
+    <h2 class="section-title"><i class="fa-solid fa-comments"></i> آراء الزملاء (التعليقات)</h2>
+    <div class="comments-section">
+        <div id="comments-container">
+            
+            <!-- تعليق وهمي 1 -->
+            <div class="comment-item">
+                <div class="comment-avatar">سـ</div>
+                <div class="comment-content">
+                    <h4>سارة الخالد <span>منذ يومين</span></h4>
+                    <p>ماشاء الله تبارك الله، أداة WebGuard حلت لنا مشكلة كبيرة في فحص الثغرات بسرعة عالية. شغلك ممتاز جداً يا أحمد!</p>
+                </div>
+            </div>
+
+            <!-- تعليق وهمي 2 -->
+            <div class="comment-item">
+                <div class="comment-avatar">مـ</div>
+                <div class="comment-content">
+                    <h4>م. محمد الشهري <span>منذ 5 أيام</span></h4>
+                    <p>تعاملت مع أحمد في مشروع تقييم مخاطر الشبكة، متمكن وسريع ويشرح التقرير بطريقة واضحة جداً. بالتوفيق لك!</p>
+                </div>
+            </div>
+
+            <!-- تعليق وهمي 3 -->
+            <div class="comment-item">
+                <div class="comment-avatar">رـ</div>
+                <div class="comment-content">
+                    <h4>ريما الفهد <span>منذ أسبوع</span></h4>
+                    <p>نظام محاكاة التصيد كان مبهر وفاد الفريق بشكل كبير في زيادة الوعي الرقمي. مبدع دائماً.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- إضافة تعليق تفاعلي -->
+        <div class="add-comment-box">
+            <input type="text" id="comment-input" placeholder="اكتب تعليقاً أو رأياً في أداء أحمد...">
+            <button onclick="addComment()">نشر</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // كود تفاعلي لإضافة تعليق جديد فوراً في الصفحة
+    function addComment() {
+        const input = document.getElementById('comment-input');
+        const text = input.value.trim();
+
+        if (text !== "") {
+            const container = document.getElementById('comments-container');
+            const newComment = document.createElement('div');
+            newComment.className = 'comment-item';
+            
+            newComment.innerHTML = `
+                <div class="comment-avatar">زـ</div>
+                <div class="comment-content">
+                    <h4>زائر <span>الآن</span></h4>
+                    <p>${text}</p>
+                </div>
+            `;
+
+            container.appendChild(newComment);
+            input.value = ""; // تفريغ الخانة
+        } else {
+            alert("يرجى كتابة التعليق أولاً!");
+        }
+    }
+</script>
+
+</body>
+</html>
