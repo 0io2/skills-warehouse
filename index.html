@@ -405,6 +405,28 @@
          نوافذ منبثقة (Modals)
     ========================== -->
 
+    <!-- نافذة تسجيل الدخول -->
+    <div id="loginModal" class="modal" style="display:none;">
+        <div class="modal-content">
+            <span class="close-btn" onclick="closeLogin()">&times;</span>
+            <h3>تسجيل الدخول</h3>
+            <form id="loginForm" onsubmit="submitLogin(event)">
+                <div class="form-group">
+                    <label>البريد الإلكتروني أو اسم المستخدم</label>
+                    <input type="text" id="loginEmail" required placeholder="ادخل البريد أو الاسم">
+                </div>
+                <div class="form-group">
+                    <label>كلمة المرور</label>
+                    <input type="password" id="loginPassword" required placeholder="••••••••">
+                </div>
+                <button type="submit" class="primary-btn full-width">دخول</button>
+                <p style="text-align: center; margin-top: 15px; font-size: 14px;">
+                    ليس لديك حساب؟ <span onclick="goToRegister()" style="color: #4f46e5; text-decoration: underline; font-weight: bold; cursor: pointer;">إنشاء حساب جديد</span>
+                </p>
+            </form>
+        </div>
+    </div>
+
     <!-- نافذة إضافة خدمة -->
     <div id="addServiceModal" class="modal" style="display:none;">
         <div class="modal-content">
@@ -437,7 +459,7 @@
         </div>
     </div>
 
-    <!-- دوال الفلترة والبحث المباشر -->
+    <!-- دوال الجافاسكريبت والتحكم بالواجهة -->
     <script>
         function filterServices(category, btnElement) {
             const categories = document.querySelectorAll('.category');
@@ -481,6 +503,27 @@
             document.getElementById('services').scrollIntoView({ behavior: 'smooth' });
         }
 
+        // دوال نافذة تسجيل الدخول
+        function openLogin() {
+            document.getElementById('loginModal').style.display = 'flex';
+        }
+
+        function closeLogin() {
+            document.getElementById('loginModal').style.display = 'none';
+        }
+
+        function submitLogin(e) {
+            e.preventDefault();
+            alert('تم تسجيل الدخول بنجاح!');
+            closeLogin();
+        }
+
+        // دالة الانتقال المباشر لصفحة إنشاء الحساب signup.html
+        function goToRegister() {
+            window.location.href = 'signup.html';
+        }
+
+        // دوال نافذة إضافة خدمة
         function openAddService() {
             document.getElementById('addServiceModal').style.display = 'flex';
         }
@@ -493,6 +536,10 @@
             e.preventDefault();
             alert('تمت إضافة الخدمة بنجاح!');
             closeAddService();
+        }
+
+        function showHours() {
+            alert('رصيدك الحالي في بنك الساعات هو 10 ساعات.');
         }
     </script>
 
