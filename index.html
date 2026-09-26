@@ -138,7 +138,7 @@
                     <input
                         type="text"
                         id="searchInput"
-                        placeholder="ابحث عن تصميم، برمجة، كتابة..."
+                        placeholder="ابحث عن تصميم، برمجة، أمن سيبراني..."
                         oninput="searchServices()"
                     >
                     <button onclick="searchServices()">
@@ -167,6 +167,7 @@
             <!-- التصنيفات -->
             <div class="categories">
                 <button class="category active" onclick="filterServices('all', this)">الكل</button>
+                <button class="category" onclick="filterServices('cybersecurity', this)">🛡️ الأمن السيبراني</button>
                 <button class="category" onclick="filterServices('design', this)">🎨 التصميم</button>
                 <button class="category" onclick="filterServices('programming', this)">💻 البرمجة</button>
                 <button class="category" onclick="filterServices('writing', this)">✍️ الكتابة</button>
@@ -178,7 +179,29 @@
             <!-- شبكة الخدمات -->
             <div class="services-grid" id="servicesGrid">
 
-                <!-- الخدمة الأولى -->
+                <!-- خدمة أحمد (أمن سيبراني) -->
+                <article class="service-card" data-category="cybersecurity" data-name="فحص ثغرات وتحليل أمني">
+                    <div class="service-image cybersecurity-image" style="background:#1e1b4b; display:flex; align-items:center; justify-content:center; font-size:40px; height:120px; border-radius:8px;">🛡️</div>
+                    <div class="service-content">
+                        <div class="service-category">الأمن السيبراني</div>
+                        <h3>فحص ومراجعة أمان المواقع</h3>
+                        <p>تحليل وتقييم أمني للمواقع والتطبيقات واكتشاف الثغرات البرمجية.</p>
+                        <div class="service-user">
+                            <div class="avatar">أ</div>
+                            <div>
+                                <strong>أحمد علي القحطاني</strong>
+                                <small>محلل أمن سيبراني</small>
+                            </div>
+                            <div class="rating">★ 5.0</div>
+                        </div>
+                        <div class="service-bottom">
+                            <span>🕒 4 ساعات</span>
+                            <a href="profile.html?user=ahmed" class="primary-btn view-profile-btn" style="text-decoration:none; padding: 8px 16px; border-radius: 8px; font-size: 14px; background: #4f46e5; color: white;">عرض الملف الشخصي</a>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- الخدمة الأولى (نورة) -->
                 <article class="service-card" data-category="design" data-name="تصميم هوية بصرية">
                     <div class="service-image design-image">🎨</div>
                     <div class="service-content">
@@ -200,7 +223,7 @@
                     </div>
                 </article>
 
-                <!-- الخدمة الثانية -->
+                <!-- الخدمة الثانية (محمد) -->
                 <article class="service-card" data-category="programming" data-name="برمجة موقع">
                     <div class="service-image programming-image">💻</div>
                     <div class="service-content">
@@ -222,7 +245,7 @@
                     </div>
                 </article>
 
-                <!-- الخدمة الثالثة -->
+                <!-- الخدمة الثالثة (سارة) -->
                 <article class="service-card" data-category="writing" data-name="كتابة محتوى">
                     <div class="service-image writing-image">✍️</div>
                     <div class="service-content">
@@ -244,7 +267,7 @@
                     </div>
                 </article>
 
-                <!-- الخدمة الرابعة -->
+                <!-- الخدمة الرابعة (ريم) -->
                 <article class="service-card" data-category="marketing" data-name="إدارة حساب">
                     <div class="service-image marketing-image">📢</div>
                     <div class="service-content">
@@ -323,29 +346,49 @@
             </div>
 
             <div class="users-grid">
-                <div class="user-card">
-                    <div class="large-avatar">ن</div>
-                    <h3>نورة العتيبي</h3>
-                    <p>مصممة جرافيك</p>
-                    <div class="user-skills">تصميم · شعارات · هوية</div>
-                    <div class="user-rating">★ 4.9</div>
-                </div>
+                <!-- بطاقة أحمد علي القحطاني -->
+                <a href="profile.html?user=ahmed" style="text-decoration: none; color: inherit;">
+                    <div class="user-card" style="cursor: pointer;">
+                        <div class="large-avatar" style="background: #1e1b4b; color: #6366f1;">أ</div>
+                        <h3>أحمد علي القحطاني</h3>
+                        <p>محلل أمن سيبراني وخبير ثغرات</p>
+                        <div class="user-skills">أمن سيبراني · ثغرات · اختبار اختراق</div>
+                        <div class="user-rating">★ 5.0</div>
+                    </div>
+                </a>
 
-                <div class="user-card">
-                    <div class="large-avatar">م</div>
-                    <h3>محمد القحطاني</h3>
-                    <p>مطور ويب</p>
-                    <div class="user-skills">HTML · CSS · JavaScript</div>
-                    <div class="user-rating">★ 4.8</div>
-                </div>
+                <!-- بطاقة نورة العتيبي -->
+                <a href="profile.html?user=noura" style="text-decoration: none; color: inherit;">
+                    <div class="user-card" style="cursor: pointer;">
+                        <div class="large-avatar">ن</div>
+                        <h3>نورة العتيبي</h3>
+                        <p>مصممة جرافيك</p>
+                        <div class="user-skills">تصميم · شعارات · هوية</div>
+                        <div class="user-rating">★ 4.9</div>
+                    </div>
+                </a>
 
-                <div class="user-card">
-                    <div class="large-avatar">س</div>
-                    <h3>سارة أحمد</h3>
-                    <p>كاتبة محتوى</p>
-                    <div class="user-skills">كتابة · ترجمة · تدقيق</div>
-                    <div class="user-rating">★ 5.0</div>
-                </div>
+                <!-- بطاقة محمد القحطاني -->
+                <a href="profile.html?user=mohammed" style="text-decoration: none; color: inherit;">
+                    <div class="user-card" style="cursor: pointer;">
+                        <div class="large-avatar">م</div>
+                        <h3>محمد القحطاني</h3>
+                        <p>مطور ويب</p>
+                        <div class="user-skills">HTML · CSS · JavaScript</div>
+                        <div class="user-rating">★ 4.8</div>
+                    </div>
+                </a>
+
+                <!-- بطاقة سارة أحمد -->
+                <a href="profile.html?user=sara" style="text-decoration: none; color: inherit;">
+                    <div class="user-card" style="cursor: pointer;">
+                        <div class="large-avatar">س</div>
+                        <h3>سارة أحمد</h3>
+                        <p>كاتبة محتوى</p>
+                        <div class="user-skills">كتابة · ترجمة · تدقيق</div>
+                        <div class="user-rating">★ 5.0</div>
+                    </div>
+                </a>
             </div>
         </section>
 
@@ -392,6 +435,7 @@
                 <div class="form-group">
                     <label>التصنيف</label>
                     <select id="serviceCategory" required>
+                        <option value="cybersecurity">الأمن السيبراني</option>
                         <option value="design">التصميم</option>
                         <option value="programming">البرمجة</option>
                         <option value="writing">الكتابة</option>
@@ -412,94 +456,6 @@
             </form>
         </div>
     </div>
-
-    <!-- ملف السكريبت -->
-    <script src="script.js"></script>
-
-
-    <!-- نموذج لبطاقة بروفايل مستخدم -->
-<div class="user-card" data-file="profiles/user1_portfolio.html">
-    <img src="avatar1.png" alt="صورة المستخدم">
-    <h3>أحمد علي</h3>
-    <p>محلل أمن سيبراني</p>
-    <button class="view-profile-btn">عرض الملف الشخصي</button>
-</div>
-
-<div class="user-card" data-file="profiles/user2_portfolio.html">
-    <img src="avatar2.png" alt="صورة المستخدم">
-    <h3>سارة الخالد</h3>
-    <p>مختبرة اختراق</p>
-    <button class="view-profile-btn">عرض الملف الشخصي</button>
-</div>
-<!-- أضف السطر هنا قبل نهاية </body> مباشرة -->
-    <script src="script.js"></script>
-    <!-- نموذج لبطاقات المستخدمين -->
-<div class="user-card">
-    <h3>أحمد علي</h3>
-    <p>محلل أمن سيبراني</p>
-    <!-- أضفنا مسار الملف مباشرة هنا -->
-    <button class="view-profile-btn" data-file="profiles/user1.html">عرض الملف الشخصي</button>
-</div>
-
-<div class="user-card">
-    <h3>سارة الخالد</h3>
-    <p>مختبرة اختراق</p>
-    <button class="view-profile-btn" data-file="profiles/user2.html">عرض الملف الشخصي</button>
-</div>
-
-<div class="user-card">
-    <img src="avatar1.png" alt="صورة المستخدم">
-    <h3>أحمد</h3>
-    <p>محلل أمن سيبراني</p>
-
-    <!-- الرابط المباشر لصفحة المستخدم -->
-    <a href="user1.html" class="view-profile-btn">عرض النبذة والأعمال</a>
-</div>
-
-<!-- قسم أعضاء المنصة في index.html -->
-<div class="users-grid">
-
-    <!-- 1. أحمد علي القحطاني -->
-    <a href="user1.html" class="user-card-link">
-        <div class="user-card">
-            <div class="user-avatar"><i class="fa-solid fa-user-shield"></i></div>
-            <h3>أحمد علي القحطاني</h3>
-            <p>محلل أمن سيبراني وخبير ثغرات</p>
-            <span class="profile-btn">عرض الملف الشخصي <i class="fa-solid fa-arrow-left"></i></span>
-        </div>
-    </a>
-
-    <!-- 2. نورة العتيبي -->
-    <a href="user2.html" class="user-card-link">
-        <div class="user-card">
-            <div class="user-avatar" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);"><i class="fa-solid fa-palette"></i></div>
-            <h3>نورة العتيبي</h3>
-            <p>مصممة جرافيك وهُوية بصرية</p>
-            <span class="profile-btn">عرض الملف الشخصي <i class="fa-solid fa-arrow-left"></i></span>
-        </div>
-    </a>
-
-    <!-- 3. محمد القحطاني -->
-    <a href="user3.html" class="user-card-link">
-        <div class="user-card">
-            <div class="user-avatar" style="background: linear-gradient(135deg, #10b981, #06b6d4);"><i class="fa-solid fa-code"></i></div>
-            <h3>محمد القحطاني</h3>
-            <p>مطور ويب Full-Stack</p>
-            <span class="profile-btn">عرض الملف الشخصي <i class="fa-solid fa-arrow-left"></i></span>
-        </div>
-    </a>
-
-    <!-- 4. سارة أحمد -->
-    <a href="user4.html" class="user-card-link">
-        <div class="user-card">
-            <div class="user-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);"><i class="fa-solid fa-pen-nib"></i></div>
-            <h3>سارة أحمد</h3>
-            <p>كاتبة محتوى ومتخصصة SEO</p>
-            <span class="profile-btn">عرض الملف الشخصي <i class="fa-solid fa-arrow-left"></i></span>
-        </div>
-    </a>
-
-</div>
 
 </body>
 
