@@ -1205,3 +1205,50 @@ setTimeout(function () {
     );
 
 }, 1000);
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // تحديد جميع أزرار عرض الملف الشخصي
+    const profileButtons = document.querySelectorAll('.view-profile-btn');
+
+    profileButtons.forEach(button => {
+        button.addEventListener('click', (event) => {
+            // الوصول للعنصر الأب (بطاقة المستخدم) للحصول على مسار الملف
+            const userCard = event.target.closest('.user-card');
+            const filePath = userCard.getAttribute('data-file');
+
+            if (filePath) {
+                // الانتقال إلى ملف المستخدم في نفس النافذة
+                window.location.href = filePath;
+                
+                // أو لفتحه في تبويب جديد، استخدم السطر التالي بدلاً من الأعلي:
+                // window.open(filePath, '_blank');
+            } else {
+                console.error("لم يتم تحديد مسار الملف لهذا المستخدم.");
+            }
+        });
+    });
+});
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', () => {
+    // التقاط جميع الأزرار التي تحمل الكلاس
+    const buttons = document.querySelectorAll('.view-profile-btn');
+
+    buttons.forEach(button => {
+        button.addEventListener('click', function() {
+            // قراءة المسار المكتوب داخل الزر مباشرة
+            const filePath = this.getAttribute('data-file');
+            
+            if (filePath) {
+                // التوجيه إلى الصفحة
+                window.location.href = filePath;
+            } else {
+                alert('عذراً، مسار الملف غير موجود!');
+            }
+        });
+    });
+});

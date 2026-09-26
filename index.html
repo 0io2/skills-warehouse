@@ -4,9 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>مِستودع المهارات | Skills Warehouse</title>
-
     <!-- ملف التصميم -->
     <link rel="stylesheet" href="style.css">
 </head>
@@ -14,10 +12,9 @@
 <body>
 
     <!-- =========================
-         شريط التنقل
+         شريط التنقل (Navbar)
     ========================== -->
     <header class="navbar">
-
         <div class="logo">
             <span class="logo-icon">م</span>
             <div>
@@ -27,13 +24,13 @@
         </div>
 
         <nav>
-    <a href="index.html" class="active">الرئيسية</a>
-    <a href="index.html#services">الخدمات</a>
-    <a href="index.html#how-it-works">كيف تعمل؟</a>
-    <a href="faq.html">الأسئلة الشائعة</a>
-    <a href="index.html#users">المستخدمون</a>
-    <a href="about.html">من نحن</a>
-</nav>
+            <a href="index.html" class="active">الرئيسية</a>
+            <a href="index.html#services">الخدمات</a>
+            <a href="index.html#how-it-works">كيف تعمل؟</a>
+            <a href="faq.html">الأسئلة الشائعة</a>
+            <a href="index.html#users">المستخدمون</a>
+            <a href="about.html">من نحن</a>
+        </nav>
 
         <div class="nav-actions">
             <button class="hours-btn" onclick="showHours()">
@@ -44,19 +41,16 @@
                 تسجيل الدخول
             </button>
         </div>
-
     </header>
 
-
     <!-- =========================
-         الصفحة الرئيسية
+         المحتوى الرئيسي (Main)
     ========================== -->
     <main>
 
+        <!-- القسم الرئيسي (Hero Section) -->
         <section id="home" class="hero">
-
             <div class="hero-content">
-
                 <span class="hero-badge">
                     ✦ تبادل المهارات بدون أموال
                 </span>
@@ -73,7 +67,6 @@
                 </p>
 
                 <div class="hero-buttons">
-
                     <button class="primary-btn" onclick="scrollToServices()">
                         استكشف الخدمات
                         <span>←</span>
@@ -82,11 +75,9 @@
                     <button class="secondary-btn" onclick="openAddService()">
                         + أضف مهارتك
                     </button>
-
                 </div>
 
                 <div class="hero-stats">
-
                     <div class="stat">
                         <strong id="usersCount">0</strong>
                         <span>مستخدم</span>
@@ -101,16 +92,11 @@
                         <strong id="hoursCount">0</strong>
                         <span>ساعة متبادلة</span>
                     </div>
-
                 </div>
-
             </div>
 
-
             <!-- بطاقة بنك الساعات -->
-
             <div class="hours-card">
-
                 <div class="card-top">
                     <span>بنك الساعات</span>
                     <span class="card-icon">🕒</span>
@@ -134,896 +120,386 @@
                     <span>الرصيد المتاح</span>
                     <span id="hoursPercent">0%</span>
                 </div>
-
             </div>
-
         </section>
 
-
         <!-- =========================
-             البحث
+             قسم البحث
         ========================== -->
-
         <section class="search-section">
-
             <div class="search-container">
-
                 <div class="search-text">
                     <h3>وش المهارة اللي تحتاجها؟</h3>
-                    <p>
-                        ابحث عن أشخاص يقدمون الخدمة التي تحتاجها
-                    </p>
+                    <p>ابحث عن أشخاص يقدمون الخدمة التي تحتاجها</p>
                 </div>
 
                 <div class="search-box">
-
                     <span>🔎</span>
-
                     <input
                         type="text"
                         id="searchInput"
                         placeholder="ابحث عن تصميم، برمجة، كتابة..."
                         oninput="searchServices()"
                     >
-
                     <button onclick="searchServices()">
                         بحث
                     </button>
-
                 </div>
-
             </div>
-
         </section>
 
-
         <!-- =========================
-             الخدمات
+             قسم الخدمات
         ========================== -->
-
         <section id="services" class="services-section">
-
             <div class="section-heading">
-
                 <div>
                     <span class="section-label">اكتشف</span>
-
-                    <h2>
-                        خدمات الأعضاء
-                    </h2>
-
-                    <p>
-                        اختر الخدمة التي تحتاجها وابدأ المقايضة.
-                    </p>
+                    <h2>خدمات الأعضاء</h2>
+                    <p>اختر الخدمة التي تحتاجها واطلع على ملف صاحب المهارة.</p>
                 </div>
 
                 <button class="outline-btn" onclick="openAddService()">
                     + إضافة خدمة
                 </button>
-
             </div>
-
 
             <!-- التصنيفات -->
-
             <div class="categories">
-
-                <button
-                    class="category active"
-                    onclick="filterServices('all', this)">
-                    الكل
-                </button>
-
-                <button
-                    class="category"
-                    onclick="filterServices('design', this)">
-                    🎨 التصميم
-                </button>
-
-                <button
-                    class="category"
-                    onclick="filterServices('programming', this)">
-                    💻 البرمجة
-                </button>
-
-                <button
-                    class="category"
-                    onclick="filterServices('writing', this)">
-                    ✍️ الكتابة
-                </button>
-
-                <button
-                    class="category"
-                    onclick="filterServices('marketing', this)">
-                    📢 التسويق
-                </button>
-
-                <button
-                    class="category"
-                    onclick="filterServices('education', this)">
-                    📚 التعليم
-                </button>
-
-                <button
-                    class="category"
-                    onclick="filterServices('other', this)">
-                    ✦ أخرى
-                </button>
-
+                <button class="category active" onclick="filterServices('all', this)">الكل</button>
+                <button class="category" onclick="filterServices('design', this)">🎨 التصميم</button>
+                <button class="category" onclick="filterServices('programming', this)">💻 البرمجة</button>
+                <button class="category" onclick="filterServices('writing', this)">✍️ الكتابة</button>
+                <button class="category" onclick="filterServices('marketing', this)">📢 التسويق</button>
+                <button class="category" onclick="filterServices('education', this)">📚 التعليم</button>
+                <button class="category" onclick="filterServices('other', this)">✦ أخرى</button>
             </div>
 
-
-            <!-- قائمة الخدمات -->
-
+            <!-- شبكة الخدمات -->
             <div class="services-grid" id="servicesGrid">
 
                 <!-- الخدمة الأولى -->
-
-                <article
-                    class="service-card"
-                    data-category="design"
-                    data-name="تصميم هوية بصرية">
-
-                    <div class="service-image design-image">
-                        🎨
-                    </div>
-
+                <article class="service-card" data-category="design" data-name="تصميم هوية بصرية">
+                    <div class="service-image design-image">🎨</div>
                     <div class="service-content">
-
-                        <div class="service-category">
-                            التصميم
-                        </div>
-
-                        <h3>
-                            تصميم هوية بصرية
-                        </h3>
-
-                        <p>
-                            تصميم شعار وهوية بصرية بسيطة
-                            للمشاريع والحسابات.
-                        </p>
-
+                        <div class="service-category">التصميم</div>
+                        <h3>تصميم هوية بصرية</h3>
+                        <p>تصميم شعار وهوية بصرية بسيطة للمشاريع والحسابات.</p>
                         <div class="service-user">
-
-                            <div class="avatar">
-                                ن
-                            </div>
-
+                            <div class="avatar">ن</div>
                             <div>
-                                <strong>نورة</strong>
+                                <strong>نورة العتيبي</strong>
                                 <small>مصممة جرافيك</small>
                             </div>
-
-                            <div class="rating">
-                                ★ 4.9
-                            </div>
-
+                            <div class="rating">★ 4.9</div>
                         </div>
-
                         <div class="service-bottom">
-
-                            <span>
-                                🕒 3 ساعات
-                            </span>
-
-                            <button onclick="requestService('تصميم هوية بصرية', 3)">
-                                طلب الخدمة
-                            </button>
-
+                            <span>🕒 3 ساعات</span>
+                            <a href="profile.html?user=noura" class="primary-btn view-profile-btn" style="text-decoration:none; padding: 8px 16px; border-radius: 8px; font-size: 14px; background: #4f46e5; color: white;">عرض الملف الشخصي</a>
                         </div>
-
                     </div>
-
                 </article>
-
 
                 <!-- الخدمة الثانية -->
-
-                <article
-                    class="service-card"
-                    data-category="programming"
-                    data-name="برمجة موقع">
-
-                    <div class="service-image programming-image">
-                        💻
-                    </div>
-
+                <article class="service-card" data-category="programming" data-name="برمجة موقع">
+                    <div class="service-image programming-image">💻</div>
                     <div class="service-content">
-
-                        <div class="service-category">
-                            البرمجة
-                        </div>
-
-                        <h3>
-                            برمجة صفحة ويب
-                        </h3>
-
-                        <p>
-                            إنشاء صفحة ويب بسيطة باستخدام
-                            HTML وCSS وJavaScript.
-                        </p>
-
+                        <div class="service-category">البرمجة</div>
+                        <h3>برمجة صفحة ويب</h3>
+                        <p>إنشاء صفحة ويب بسيطة باستخدام HTML وCSS وJavaScript.</p>
                         <div class="service-user">
-
-                            <div class="avatar">
-                                م
-                            </div>
-
+                            <div class="avatar">م</div>
                             <div>
-                                <strong>محمد</strong>
+                                <strong>محمد القحطاني</strong>
                                 <small>مطور ويب</small>
                             </div>
-
-                            <div class="rating">
-                                ★ 4.8
-                            </div>
-
+                            <div class="rating">★ 4.8</div>
                         </div>
-
                         <div class="service-bottom">
-
-                            <span>
-                                🕒 4 ساعات
-                            </span>
-
-                            <button onclick="requestService('برمجة صفحة ويب', 4)">
-                                طلب الخدمة
-                            </button>
-
+                            <span>🕒 4 ساعات</span>
+                            <a href="profile.html?user=mohammed" class="primary-btn view-profile-btn" style="text-decoration:none; padding: 8px 16px; border-radius: 8px; font-size: 14px; background: #4f46e5; color: white;">عرض الملف الشخصي</a>
                         </div>
-
                     </div>
-
                 </article>
-
 
                 <!-- الخدمة الثالثة -->
-
-                <article
-                    class="service-card"
-                    data-category="writing"
-                    data-name="كتابة محتوى">
-
-                    <div class="service-image writing-image">
-                        ✍️
-                    </div>
-
+                <article class="service-card" data-category="writing" data-name="كتابة محتوى">
+                    <div class="service-image writing-image">✍️</div>
                     <div class="service-content">
-
-                        <div class="service-category">
-                            الكتابة
-                        </div>
-
-                        <h3>
-                            كتابة محتوى
-                        </h3>
-
-                        <p>
-                            كتابة محتوى احترافي للمواقع
-                            وحسابات التواصل الاجتماعي.
-                        </p>
-
+                        <div class="service-category">الكتابة</div>
+                        <h3>كتابة محتوى</h3>
+                        <p>كتابة محتوى احترافي للمواقع وحسابات التواصل الاجتماعي.</p>
                         <div class="service-user">
-
-                            <div class="avatar">
-                                س
-                            </div>
-
+                            <div class="avatar">س</div>
                             <div>
-                                <strong>سارة</strong>
+                                <strong>سارة أحمد</strong>
                                 <small>كاتبة محتوى</small>
                             </div>
-
-                            <div class="rating">
-                                ★ 5.0
-                            </div>
-
+                            <div class="rating">★ 5.0</div>
                         </div>
-
                         <div class="service-bottom">
-
-                            <span>
-                                🕒 2 ساعات
-                            </span>
-
-                            <button onclick="requestService('كتابة محتوى', 2)">
-                                طلب الخدمة
-                            </button>
-
+                            <span>🕒 2 ساعات</span>
+                            <a href="profile.html?user=sara" class="primary-btn view-profile-btn" style="text-decoration:none; padding: 8px 16px; border-radius: 8px; font-size: 14px; background: #4f46e5; color: white;">عرض الملف الشخصي</a>
                         </div>
-
                     </div>
-
                 </article>
-
 
                 <!-- الخدمة الرابعة -->
-
-                <article
-                    class="service-card"
-                    data-category="marketing"
-                    data-name="إدارة حساب">
-
-                    <div class="service-image marketing-image">
-                        📢
-                    </div>
-
+                <article class="service-card" data-category="marketing" data-name="إدارة حساب">
+                    <div class="service-image marketing-image">📢</div>
                     <div class="service-content">
-
-                        <div class="service-category">
-                            التسويق
-                        </div>
-
-                        <h3>
-                            إدارة حسابات التواصل
-                        </h3>
-
-                        <p>
-                            المساعدة في إعداد خطة محتوى
-                            وإدارة الحسابات الاجتماعية.
-                        </p>
-
+                        <div class="service-category">التسويق</div>
+                        <h3>إدارة حسابات التواصل</h3>
+                        <p>المساعدة في إعداد خطة محتوى وإدارة الحسابات الاجتماعية.</p>
                         <div class="service-user">
-
-                            <div class="avatar">
-                                ر
-                            </div>
-
+                            <div class="avatar">ر</div>
                             <div>
-                                <strong>ريم</strong>
+                                <strong>ريم الشهري</strong>
                                 <small>مسوقة رقمية</small>
                             </div>
-
-                            <div class="rating">
-                                ★ 4.7
-                            </div>
-
+                            <div class="rating">★ 4.7</div>
                         </div>
-
                         <div class="service-bottom">
-
-                            <span>
-                                🕒 5 ساعات
-                            </span>
-
-                            <button onclick="requestService('إدارة حسابات التواصل', 5)">
-                                طلب الخدمة
-                            </button>
-
+                            <span>🕒 5 ساعات</span>
+                            <a href="profile.html?user=reem" class="primary-btn view-profile-btn" style="text-decoration:none; padding: 8px 16px; border-radius: 8px; font-size: 14px; background: #4f46e5; color: white;">عرض الملف الشخصي</a>
                         </div>
-
                     </div>
-
                 </article>
 
             </div>
 
-
-            <!-- لا توجد نتائج -->
-
-            <div
-                id="noResults"
-                class="no-results"
-                style="display:none;">
-
+            <!-- حالة عدم وجود نتائج -->
+            <div id="noResults" class="no-results" style="display:none;">
                 <div>🔍</div>
-
-                <h3>
-                    ما لقينا الخدمة
-                </h3>
-
-                <p>
-                    جربي البحث بكلمة مختلفة.
-                </p>
-
+                <h3>ما لقينا الخدمة</h3>
+                <p>جربي البحث بكلمة مختلفة.</p>
             </div>
-
         </section>
-
 
         <!-- =========================
              كيف تعمل المنصة
         ========================== -->
-
         <section id="how-it-works" class="how-section">
-
             <div class="section-heading centered">
-
-                <span class="section-label">
-                    بسيطة وواضحة
-                </span>
-
-                <h2>
-                    كيف تعمل المنصة؟
-                </h2>
-
-                <p>
-                    ثلاث خطوات فقط لتبدأ بتبادل مهاراتك.
-                </p>
-
+                <span class="section-label">بسيطة وواضحة</span>
+                <h2>كيف تعمل المنصة؟</h2>
+                <p>ثلاث خطوات فقط لتبدأ بتبادل مهاراتك.</p>
             </div>
-
 
             <div class="steps">
-
                 <div class="step">
-
-                    <div class="step-number">
-                        01
-                    </div>
-
-                    <div class="step-icon">
-                        👤
-                    </div>
-
-                    <h3>
-                        أنشئ حسابك
-                    </h3>
-
-                    <p>
-                        أضف مهاراتك والخدمات التي تستطيع
-                        تقديمها للآخرين.
-                    </p>
-
+                    <div class="step-number">01</div>
+                    <div class="step-icon">👤</div>
+                    <h3>أنشئ حسابك</h3>
+                    <p>أضف مهاراتك والخدمات التي تستطيع تقديمها للآخرين.</p>
                 </div>
 
-
                 <div class="step">
-
-                    <div class="step-number">
-                        02
-                    </div>
-
-                    <div class="step-icon">
-                        🤝
-                    </div>
-
-                    <h3>
-                        قدم خدمة
-                    </h3>
-
-                    <p>
-                        ساعد أحد الأعضاء واحصل على ساعات
-                        تضاف إلى رصيدك.
-                    </p>
-
+                    <div class="step-number">02</div>
+                    <div class="step-icon">🤝</div>
+                    <h3>قدم خدمة</h3>
+                    <p>ساعد أحد الأعضاء واحصل على ساعات تضاف إلى رصيدك.</p>
                 </div>
 
-
                 <div class="step">
-
-                    <div class="step-number">
-                        03
-                    </div>
-
-                    <div class="step-icon">
-                        🕒
-                    </div>
-
-                    <h3>
-                        استخدم رصيدك
-                    </h3>
-
-                    <p>
-                        أنفق ساعاتك للحصول على أي خدمة
-                        تحتاجها من أعضاء آخرين.
-                    </p>
-
+                    <div class="step-number">03</div>
+                    <div class="step-icon">🕒</div>
+                    <h3>استخدم رصيدك</h3>
+                    <p>أنفق ساعاتك للحصول على أي خدمة تحتاجها من أعضاء آخرين.</p>
                 </div>
-
             </div>
-
         </section>
 
-
         <!-- =========================
-             المستخدمون
+             قسم المستخدمين
         ========================== -->
-
         <section id="users" class="users-section">
-
             <div class="section-heading">
-
                 <div>
-
-                    <span class="section-label">
-                        مجتمعنا
-                    </span>
-
-                    <h2>
-                        مهارات من حولك
-                    </h2>
-
-                    <p>
-                        أشخاص يملكون مهارات مختلفة
-                        مستعدين للتعاون.
-                    </p>
-
+                    <span class="section-label">مجتمعنا</span>
+                    <h2>مهارات من حولك</h2>
+                    <p>أشخاص يملكون مهارات مختلفة مستعدين للتعاون.</p>
                 </div>
-
             </div>
-
 
             <div class="users-grid">
-
                 <div class="user-card">
-
-                    <div class="large-avatar">
-                        ن
-                    </div>
-
+                    <div class="large-avatar">ن</div>
                     <h3>نورة العتيبي</h3>
-
                     <p>مصممة جرافيك</p>
-
-                    <div class="user-skills">
-                        تصميم · شعارات · هوية
-                    </div>
-
-                    <div class="user-rating">
-                        ★ 4.9
-                    </div>
-
+                    <div class="user-skills">تصميم · شعارات · هوية</div>
+                    <div class="user-rating">★ 4.9</div>
                 </div>
 
-
                 <div class="user-card">
-
-                    <div class="large-avatar">
-                        م
-                    </div>
-
+                    <div class="large-avatar">م</div>
                     <h3>محمد القحطاني</h3>
-
                     <p>مطور ويب</p>
-
-                    <div class="user-skills">
-                        HTML · CSS · JavaScript
-                    </div>
-
-                    <div class="user-rating">
-                        ★ 4.8
-                    </div>
-
+                    <div class="user-skills">HTML · CSS · JavaScript</div>
+                    <div class="user-rating">★ 4.8</div>
                 </div>
-
 
                 <div class="user-card">
-
-                    <div class="large-avatar">
-                        س
-                    </div>
-
+                    <div class="large-avatar">س</div>
                     <h3>سارة أحمد</h3>
-
                     <p>كاتبة محتوى</p>
-
-                    <div class="user-skills">
-                        كتابة · ترجمة · تدقيق
-                    </div>
-
-                    <div class="user-rating">
-                        ★ 5.0
-                    </div>
-
+                    <div class="user-skills">كتابة · ترجمة · تدقيق</div>
+                    <div class="user-rating">★ 5.0</div>
                 </div>
-
             </div>
-
-        </section>
-
-
-        <!-- =========================
-             عن المنصة
-        ========================== -->
-
-        <section id="about" class="about-section">
-
-            <div class="about-content">
-
-                <span class="section-label">
-                    عن مِستودع المهارات
-                </span>
-
-                <h2>
-                    لأن كل شخص يملك شيئًا
-                    يستحق أن يُتبادل.
-                </h2>
-
-                <p>
-                    نهدف إلى إنشاء مجتمع يستطيع فيه الأشخاص
-                    الاستفادة من مهارات بعضهم البعض دون أن
-                    يكون المال عائقًا أمام التعاون.
-                </p>
-
-                <p>
-                    يعتمد النظام على بنك ساعات رقمي يجعل
-                    الوقت هو القيمة الأساسية للخدمات.
-                </p>
-
-            </div>
-
-            <div class="about-icon">
-                🕒
-            </div>
-
         </section>
 
     </main>
 
-
     <!-- =========================
-         Footer
+         التذييل (Footer)
     ========================== -->
-
-    <footer>
-
-        <div class="footer-content">
-
+    <footer class="footer">
+        <div class="footer-container">
             <div class="footer-brand">
-
-                <div class="logo">
-                    <span class="logo-icon">م</span>
-
-                    <div>
-                        <h2>مِستودع المهارات</h2>
-                        <small>Skills Warehouse</small>
-                    </div>
-                </div>
-
-                <p>
-                    مهاراتك هي عملتك.
-                </p>
-
+                <h2>مِستودع المهارات</h2>
+                <p>منصة تبادل المهارات والخدمات عبر نظام بنك الساعات الرقمي.</p>
             </div>
-
-
             <div class="footer-links">
-
-                <h3>المنصة</h3>
-
-                <a href="#home">الرئيسية</a>
-                <a href="#services">الخدمات</a>
-                <a href="#how-it-works">كيف تعمل؟</a>
-
+                <h4>روابط سريعة</h4>
+                <ul>
+                    <li><a href="index.html">الرئيسية</a></li>
+                    <li><a href="index.html#services">الخدمات</a></li>
+                    <li><a href="faq.html">الأسئلة الشائعة</a></li>
+                    <li><a href="about.html">من نحن</a></li>
+                </ul>
             </div>
-
-
-            <div class="footer-links">
-
-                <h3>المساعدة</h3>
-
-                <a href="#">الأسئلة الشائعة</a>
-                <a href="#">تواصل معنا</a>
-                <a href="#">الشروط والأحكام</a>
-
-            </div>
-
         </div>
-
-
         <div class="footer-bottom">
-
-            <p>
-                © 2026 مِستودع المهارات — جميع الحقوق محفوظة
-            </p>
-
-            <span>
-                🔐 منصة آمنة لتبادل المهارات
-            </span>
-
+            <p>جميع الحقوق محفوظة &copy; 2026 مِستودع المهارات - Skills Warehouse</p>
         </div>
-
     </footer>
 
-
     <!-- =========================
-         نافذة تسجيل الدخول
+         نوافذ منبثقة (Modals)
     ========================== -->
 
-    <div
-        id="loginModal"
-        class="modal">
-
+    <!-- نافذة إضافة خدمة -->
+    <div id="addServiceModal" class="modal" style="display:none;">
         <div class="modal-content">
-
-            <button
-                class="close-btn"
-                onclick="closeLogin()">
-                ×
-            </button>
-
-            <div class="modal-icon">
-                👤
-            </div>
-
-            <h2>
-                تسجيل الدخول
-            </h2>
-
-            <p>
-                ادخل إلى حسابك في مِستودع المهارات
-            </p>
-
-            <form onsubmit="login(event)">
-
-                <label>
-                    البريد الإلكتروني
-                </label>
-
-                <input
-                    type="email"
-                    id="email"
-                    placeholder="example@email.com"
-                    required
-                >
-
-                <label>
-                    كلمة المرور
-                </label>
-
-                <input
-                    type="password"
-                    id="password"
-                    placeholder="••••••••"
-                    required
-                >
-
-                <button
-                    type="submit"
-                    class="primary-btn full">
-                    دخول
-                </button>
-
+            <span class="close-btn" onclick="closeAddService()">&times;</span>
+            <h3>إضافة خدمة جديدة</h3>
+            <form id="addServiceForm" onsubmit="submitService(event)">
+                <div class="form-group">
+                    <label>عنوان الخدمة</label>
+                    <input type="text" id="serviceTitle" required placeholder="مثال: تصميم شعار احترافي">
+                </div>
+                <div class="form-group">
+                    <label>التصنيف</label>
+                    <select id="serviceCategory" required>
+                        <option value="design">التصميم</option>
+                        <option value="programming">البرمجة</option>
+                        <option value="writing">الكتابة</option>
+                        <option value="marketing">التسويق</option>
+                        <option value="education">التعليم</option>
+                        <option value="other">أخرى</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>عدد الساعات المطلوبة</label>
+                    <input type="number" id="serviceHours" min="1" max="10" required placeholder="3">
+                </div>
+                <div class="form-group">
+                    <label>وصف الخدمة</label>
+                    <textarea id="serviceDesc" rows="3" required placeholder="اكتب تفاصيل الخدمة..."></textarea>
+                </div>
+                <button type="submit" class="primary-btn full-width">نشر الخدمة</button>
             </form>
-
-            <p class="modal-footer">
-    ليس لديك حساب؟
-    <a href="register.html">
-        إنشاء حساب
-    </a>
-</p>
-
         </div>
-
     </div>
 
-
-    <!-- =========================
-         نافذة إضافة خدمة
-    ========================== -->
-
-    <div
-        id="serviceModal"
-        class="modal">
-
-        <div class="modal-content large">
-
-            <button
-                class="close-btn"
-                onclick="closeAddService()">
-                ×
-            </button>
-
-            <div class="modal-icon">
-                ✨
-            </div>
-
-            <h2>
-                أضف خدمتك
-            </h2>
-
-            <p>
-                شارك مهارتك مع مجتمع مِستودع المهارات
-            </p>
-
-            <form onsubmit="addService(event)">
-
-                <label>
-                    اسم الخدمة
-                </label>
-
-                <input
-                    type="text"
-                    id="serviceName"
-                    placeholder="مثال: تصميم شعار"
-                    required
-                >
-
-                <label>
-                    التصنيف
-                </label>
-
-                <select id="serviceCategory" required>
-
-                    <option value="">
-                        اختر التصنيف
-                    </option>
-
-                    <option value="design">
-                        🎨 التصميم
-                    </option>
-
-                    <option value="programming">
-                        💻 البرمجة
-                    </option>
-
-                    <option value="writing">
-                        ✍️ الكتابة
-                    </option>
-
-                    <option value="marketing">
-                        📢 التسويق
-                    </option>
-
-                    <option value="education">
-                        📚 التعليم
-                    </option>
-
-                    <option value="other">
-                        ✦ أخرى
-                    </option>
-
-                </select>
-
-
-                <label>
-                    وصف الخدمة
-                </label>
-
-                <textarea
-                    id="serviceDescription"
-                    rows="4"
-                    placeholder="اكتب تفاصيل الخدمة..."
-                    required></textarea>
-
-
-                <label>
-                    عدد الساعات
-                </label>
-
-                <input
-                    type="number"
-                    id="serviceHours"
-                    min="1"
-                    max="100"
-                    placeholder="مثال: 3"
-                    required
-                >
-
-
-                <button
-                    type="submit"
-                    class="primary-btn full">
-                    إضافة الخدمة
-                </button>
-
-            </form>
-
-        </div>
-
-    </div>
-
-
-    <!-- =========================
-         إشعار النظام
-    ========================== -->
-
-    <div
-        id="toast"
-        class="toast">
-
-        <span id="toastIcon">✓</span>
-
-        <span id="toastMessage">
-            تمت العملية بنجاح
-        </span>
-
-    </div>
-
-
-    <!-- ملف JavaScript -->
+    <!-- ملف السكريبت -->
     <script src="script.js"></script>
+
+
+    <!-- نموذج لبطاقة بروفايل مستخدم -->
+<div class="user-card" data-file="profiles/user1_portfolio.html">
+    <img src="avatar1.png" alt="صورة المستخدم">
+    <h3>أحمد علي</h3>
+    <p>محلل أمن سيبراني</p>
+    <button class="view-profile-btn">عرض الملف الشخصي</button>
+</div>
+
+<div class="user-card" data-file="profiles/user2_portfolio.html">
+    <img src="avatar2.png" alt="صورة المستخدم">
+    <h3>سارة الخالد</h3>
+    <p>مختبرة اختراق</p>
+    <button class="view-profile-btn">عرض الملف الشخصي</button>
+</div>
+<!-- أضف السطر هنا قبل نهاية </body> مباشرة -->
+    <script src="script.js"></script>
+    <!-- نموذج لبطاقات المستخدمين -->
+<div class="user-card">
+    <h3>أحمد علي</h3>
+    <p>محلل أمن سيبراني</p>
+    <!-- أضفنا مسار الملف مباشرة هنا -->
+    <button class="view-profile-btn" data-file="profiles/user1.html">عرض الملف الشخصي</button>
+</div>
+
+<div class="user-card">
+    <h3>سارة الخالد</h3>
+    <p>مختبرة اختراق</p>
+    <button class="view-profile-btn" data-file="profiles/user2.html">عرض الملف الشخصي</button>
+</div>
+
+<div class="user-card">
+    <img src="avatar1.png" alt="صورة المستخدم">
+    <h3>أحمد</h3>
+    <p>محلل أمن سيبراني</p>
+
+    <!-- الرابط المباشر لصفحة المستخدم -->
+    <a href="user1.html" class="view-profile-btn">عرض النبذة والأعمال</a>
+</div>
+
+<!-- قسم أعضاء المنصة في index.html -->
+<div class="users-grid">
+
+    <!-- 1. أحمد علي القحطاني -->
+    <a href="user1.html" class="user-card-link">
+        <div class="user-card">
+            <div class="user-avatar"><i class="fa-solid fa-user-shield"></i></div>
+            <h3>أحمد علي القحطاني</h3>
+            <p>محلل أمن سيبراني وخبير ثغرات</p>
+            <span class="profile-btn">عرض الملف الشخصي <i class="fa-solid fa-arrow-left"></i></span>
+        </div>
+    </a>
+
+    <!-- 2. نورة العتيبي -->
+    <a href="user2.html" class="user-card-link">
+        <div class="user-card">
+            <div class="user-avatar" style="background: linear-gradient(135deg, #ec4899, #8b5cf6);"><i class="fa-solid fa-palette"></i></div>
+            <h3>نورة العتيبي</h3>
+            <p>مصممة جرافيك وهُوية بصرية</p>
+            <span class="profile-btn">عرض الملف الشخصي <i class="fa-solid fa-arrow-left"></i></span>
+        </div>
+    </a>
+
+    <!-- 3. محمد القحطاني -->
+    <a href="user3.html" class="user-card-link">
+        <div class="user-card">
+            <div class="user-avatar" style="background: linear-gradient(135deg, #10b981, #06b6d4);"><i class="fa-solid fa-code"></i></div>
+            <h3>محمد القحطاني</h3>
+            <p>مطور ويب Full-Stack</p>
+            <span class="profile-btn">عرض الملف الشخصي <i class="fa-solid fa-arrow-left"></i></span>
+        </div>
+    </a>
+
+    <!-- 4. سارة أحمد -->
+    <a href="user4.html" class="user-card-link">
+        <div class="user-card">
+            <div class="user-avatar" style="background: linear-gradient(135deg, #f59e0b, #ef4444);"><i class="fa-solid fa-pen-nib"></i></div>
+            <h3>سارة أحمد</h3>
+            <p>كاتبة محتوى ومتخصصة SEO</p>
+            <span class="profile-btn">عرض الملف الشخصي <i class="fa-solid fa-arrow-left"></i></span>
+        </div>
+    </a>
+
+</div>
 
 </body>
 

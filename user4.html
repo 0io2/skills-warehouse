@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>الملف الشخصي - سارة أحمد</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #0f172a; color: #f8fafc; padding: 20px; line-height: 1.6; }
+        .container { max-width: 900px; margin: 0 auto; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: #38bdf8; text-decoration: none; font-weight: bold; margin-bottom: 20px; transition: 0.3s; }
+        .back-btn:hover { color: #818cf8; transform: translateX(5px); }
+        .profile-card { background: #1e293b; border-radius: 16px; padding: 30px; display: flex; align-items: center; gap: 25px; box-shadow: 0 10px 25px rgba(0,0,0,0.3); border: 1px solid #334155; margin-bottom: 30px; }
+        .avatar { width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, #f59e0b, #ef4444); display: flex; align-items: center; justify-content: center; font-size: 2.8rem; color: #fff; border: 3px solid #fbbf24; flex-shrink: 0; }
+        .user-info h1 { font-size: 1.8rem; color: #ffffff; margin-bottom: 5px; }
+        .user-info .badge { display: inline-block; background: rgba(251, 191, 36, 0.15); color: #fbbf24; padding: 4px 12px; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 12px; }
+        .user-info p { color: #94a3b8; font-size: 0.95rem; }
+        .section-title { font-size: 1.3rem; color: #f8fafc; margin-bottom: 20px; display: flex; align-items: center; gap: 10px; border-right: 4px solid #fbbf24; padding-right: 10px; }
+        .projects-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px; }
+        .project-card-link { text-decoration: none; color: inherit; display: block; }
+        .project-card { background: #1e293b; border-radius: 12px; padding: 20px; border: 1px solid #334155; transition: all 0.3s ease; height: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+        .project-card:hover { transform: translateY(-5px); border-color: #fbbf24; box-shadow: 0 8px 20px rgba(251, 191, 36, 0.15); }
+        .project-card h3 { color: #fbbf24; font-size: 1.1rem; margin-bottom: 10px; }
+        .project-card p { color: #94a3b8; font-size: 0.9rem; margin-bottom: 15px; }
+        .project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 15px; }
+        .tag { background: #0f172a; color: #cbd5e1; font-size: 0.75rem; padding: 3px 8px; border-radius: 4px; }
+        .view-link-text { font-size: 0.8rem; color: #fbbf24; font-weight: 600; display: inline-flex; align-items: center; gap: 6px; }
+        .comments-section { background: #1e293b; border-radius: 16px; padding: 25px; border: 1px solid #334155; }
+        .comment-item { display: flex; gap: 15px; padding: 15px 0; border-bottom: 1px solid #334155; }
+        .comment-item:last-child { border-bottom: none; }
+        .comment-avatar { width: 45px; height: 45px; border-radius: 50%; background: #334155; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #fbbf24; flex-shrink: 0; }
+        .comment-content h4 { font-size: 0.95rem; color: #f1f5f9; }
+        .comment-content span { font-size: 0.75rem; color: #64748b; }
+        .comment-content p { font-size: 0.9rem; color: #cbd5e1; margin-top: 5px; }
+        .add-comment-box { display: flex; gap: 10px; margin-top: 20px; }
+        .add-comment-box input { flex: 1; background: #0f172a; border: 1px solid #334155; border-radius: 8px; padding: 10px 15px; color: #fff; outline: none; }
+        .add-comment-box button { background: #fbbf24; color: #0f172a; border: none; padding: 10px 20px; border-radius: 8px; font-weight: bold; cursor: pointer; transition: 0.2s; }
+        @media (max-width: 600px) { .profile-card { flex-direction: column; text-align: center; } }
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="index.html" class="back-btn"><i class="fa-solid fa-arrow-right"></i> العودة للرئيسية</a>
+
+    <div class="profile-card">
+        <div class="avatar"><i class="fa-solid fa-pen-nib"></i></div>
+        <div class="user-info">
+            <h1>سارة أحمد</h1>
+            <span class="badge">كاتبة محتوى ومتخصصة SEO</span>
+            <p>أقوم بكتابة المقالات المتوافقة مع محركات البحث وصياغة النصوص الإعلانية والجذابة للمتابعين والعملاء.</p>
+        </div>
+    </div>
+
+    <h2 class="section-title"><i class="fa-solid fa-feather-pointed"></i> الأعمال والمشاريع</h2>
+    <div class="projects-grid">
+        <a href="https://medium.com/" target="_blank" class="project-card-link">
+            <div class="project-card">
+                <div>
+                    <h3>سلسلة مقالات الوعي التقني</h3>
+                    <p>مجموعة من المقالات الشارحة لأهمية الأمن الرقمي والتقنيات الحديثة بأسلوب مبسط وممتع.</p>
+                    <div class="project-tags"><span class="tag">Copywriting</span><span class="tag">SEO</span></div>
+                </div>
+                <span class="view-link-text">قراءة المقالات على Medium <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </div>
+        </a>
+
+        <a href="https://wordpress.org/" target="_blank" class="project-card-link">
+            <div class="project-card">
+                <div>
+                    <h3>صياغة محتوى المتاجر الإلكترونية</h3>
+                    <p>كتابة وصف المنتجات وصياغة النصوص الإعلانية الدافعة للشراء والتفاعل.</p>
+                    <div class="project-tags"><span class="tag">Content Strategy</span><span class="tag">Marketing</span></div>
+                </div>
+                <span class="view-link-text">معاينة النموذج <i class="fa-solid fa-arrow-up-right-from-square"></i></span>
+            </div>
+        </a>
+    </div>
+
+    <h2 class="section-title"><i class="fa-solid fa-comments"></i> آراء العملاء والزملاء</h2>
+    <div class="comments-section">
+        <div id="comments-container">
+            <div class="comment-item">
+                <div class="comment-avatar">خـ</div>
+                <div class="comment-content">
+                    <h4>خالد الغامدي <span>منذ يومين</span></h4>
+                    <p>أسلوب سارة ممتاز جداً في الشرح والصياغة، مقالاتها ساعدت موقعنا للوصول للصفحات الأولى بالبحث.</p>
+                </div>
+            </div>
+            <div class="comment-item">
+                <div class="comment-avatar">أـ</div>
+                <div class="comment-content">
+                    <h4>أمل الزهراني <span>منذ 6 أيام</span></h4>
+                    <p>محتوى مرتب وأفكار مبتكرة. شكراً جزيلاً يا سارة!</p>
+                </div>
+            </div>
+        </div>
+        <div class="add-comment-box">
+            <input type="text" id="comment-input" placeholder="اكتب رأيك في كتابات سارة...">
+            <button onclick="addComment()">نشر</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    function addComment() {
+        const input = document.getElementById('comment-input');
+        const text = input.value.trim();
+        if (text !== "") {
+            const container = document.getElementById('comments-container');
+            const newComment = document.createElement('div');
+            newComment.className = 'comment-item';
+            newComment.innerHTML = `<div class="comment-avatar">زـ</div><div class="comment-content"><h4>زائر <span>الآن</span></h4><p>${text}</p></div>`;
+            container.appendChild(newComment);
+            input.value = "";
+        }
+    }
+</script>
+</body>
+</html>
